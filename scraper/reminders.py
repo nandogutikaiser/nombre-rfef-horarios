@@ -109,6 +109,10 @@ def main():
     if not new_entries:
         return 0
 
+    if not os.environ.get("ONESIGNAL_APP_ID") or not os.environ.get("ONESIGNAL_API_KEY"):
+        print("OneSignal no está configurado; se omiten los recordatorios sin bloquear la actualización.")
+        return 0
+
     partidos = cargar_partidos_confirmados(new_entries)
     programados = 0
     for fecha, partido in partidos:

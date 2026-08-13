@@ -70,6 +70,10 @@ def main():
         print("No hay jornadas nuevas, no se envía notificación.")
         return 0
 
+    if not os.environ.get("ONESIGNAL_APP_ID") or not os.environ.get("ONESIGNAL_API_KEY"):
+        print("OneSignal no está configurado; se omite la notificación sin bloquear la actualización.")
+        return 0
+
     titulo = build_message(new_entries)
     result = send_notification(titulo)
     print(f"Notificación enviada: {titulo}")

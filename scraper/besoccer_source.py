@@ -15,7 +15,11 @@ BeSoccer pero quedar vacía si /jornadaN redirigía a la jornada activa.
 
 from __future__ import annotations
 
+import atexit
+import html as html_lib
+import os
 import re
+import shutil
 import time
 import unicodedata
 from dataclasses import dataclass
@@ -56,6 +60,11 @@ DATE_TEXT_RE = re.compile(
 )
 LEAGUE_RE = re.compile(r"Primera\s+(?:Federaci[oó]n|RFEF|Divisi[oó]n\s+RFEF)", re.IGNORECASE)
 MATCH_HREF_RE = re.compile(r"/(?:partido|match)/([^/?#]+)/([^/?#]+)/(?:\d+)(?:/|$)", re.IGNORECASE)
+RAW_MATCH_URL_RE = re.compile(
+    r"(?:(?:https?:)?//(?:es\.|www\.)?besoccer\.com)?"
+    r"/(?:partido|match)/[a-z0-9._~-]+/[a-z0-9._~-]+/\d+",
+    re.IGNORECASE,
+)
 
 MONTHS = {
     "ENE": 1, "JAN": 1, "FEB": 2, "MAR": 3, "ABR": 4, "APR": 4,
@@ -249,17 +258,262 @@ def _get_with_browser_fingerprint(url: str):
     raise RuntimeError(f"No se pudo descargar {url}")
 
 
+_SELENIUM_DRIVER = None
+_FORCE_BROWSER_TEAM_PAGES = False
+
+
+def _is_team_schedule_url(url: str) -> bool:
+    path = urlparse(url).path.lower()
+    return "/equipo/partidos/" in path or "/team/matches/" in path
+
+
+def _decoded_markup(markup: str) -> str:
+    # Algunos frontends serializan href dentro de JSON como \/partido\/...
+    # o como \u002Fpartido\u002F.... Normalizamos antes de buscar.
+    return (
+        html_lib.unescape(markup or "")
+        .replace("\\/", "/")
+        .replace("\\u002F", "/")
+        .replace("\\u002f", "/")
+    )
+
+
+def _team_slug_from_schedule_url(url: str) -> str | None:
+    path = urlparse(url).path.strip("/")
+    for marker in ("equipo/partidos/", "team/matches/"):
+        if marker in path:
+            return path.split(marker, 1)[1].split("/", 1)[0].strip() or None
+    return None
+
+
+def _html_has_match_refs(markup: str, team_url: str | None = None) -> bool:
+    """Comprueba que haya partidos útiles, no solo enlaces del header.
+
+    BeSoccer siempre puede incluir en la cabecera "partidos más visitados".
+    Para una página de equipo exigimos al menos un enlace cuyo local o
+    visitante sea el slug del equipo de esa URL.
+    """
+    decoded = _decoded_markup(markup)
+    team_slug = _team_slug_from_schedule_url(team_url) if team_url else None
+    for match in RAW_MATCH_URL_RE.finditer(decoded):
+        raw_url = match.group(0)
+        path = urlparse(raw_url if raw_url.startswith("http") else "https://es.besoccer.com" + raw_url).path
+        m = MATCH_HREF_RE.search(path)
+        if not m:
+            continue
+        if not team_slug:
+            return True
+        if normaliza(m.group(1)) == normaliza(team_slug) or normaliza(m.group(2)) == normaliza(team_slug):
+            return True
+    return False
+
+
+def _save_debug_html(url: str, label: str, markup: str) -> None:
+    """Guarda una muestra solo cuando falla el acceso en GitHub Actions."""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    try:
+        debug_dir = Path("/tmp/besoccer-debug")
+        debug_dir.mkdir(parents=True, exist_ok=True)
+        slug = re.sub(r"[^a-zA-Z0-9._-]+", "_", urlparse(url).path.strip("/"))[-120:] or "page"
+        (debug_dir / f"{slug}-{label}.html").write_text(markup or "", encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _close_selenium_driver() -> None:
+    global _SELENIUM_DRIVER
+    if _SELENIUM_DRIVER is not None:
+        try:
+            _SELENIUM_DRIVER.quit()
+        except Exception:
+            pass
+        _SELENIUM_DRIVER = None
+
+
+atexit.register(_close_selenium_driver)
+
+
+def _get_selenium_driver():
+    """Devuelve un Chrome headless reutilizable del propio runner de GitHub.
+
+    ubuntu-24.04 incluye Google Chrome y ChromeDriver. No descargamos un
+    navegador en cada ejecución: Selenium utiliza el que ya trae el runner.
+    """
+    global _SELENIUM_DRIVER
+    if _SELENIUM_DRIVER is not None:
+        return _SELENIUM_DRIVER
+
+    try:
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        from selenium.webdriver.chrome.service import Service
+    except ImportError as exc:
+        raise RuntimeError(
+            "Selenium no está instalado. Comprueba scraper/requirements.txt."
+        ) from exc
+
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1440,3000")
+    options.add_argument("--lang=es-ES")
+    options.add_argument("--disable-background-networking")
+    options.add_argument("--disable-default-apps")
+    options.add_argument("--disable-extensions")
+
+    chrome_bin = (
+        shutil.which("google-chrome")
+        or shutil.which("google-chrome-stable")
+        or shutil.which("chromium")
+        or shutil.which("chromium-browser")
+    )
+    if chrome_bin:
+        options.binary_location = chrome_bin
+
+    driver_path = shutil.which("chromedriver")
+    if not driver_path:
+        env_dir = os.environ.get("CHROMEWEBDRIVER")
+        if env_dir:
+            for candidate in (
+                Path(env_dir) / "chromedriver",
+                Path(env_dir) / "chromedriver-linux64" / "chromedriver",
+            ):
+                if candidate.exists():
+                    driver_path = str(candidate)
+                    break
+
+    try:
+        service = Service(executable_path=driver_path) if driver_path else Service()
+        _SELENIUM_DRIVER = webdriver.Chrome(service=service, options=options)
+        _SELENIUM_DRIVER.set_page_load_timeout(45)
+        _SELENIUM_DRIVER.set_script_timeout(20)
+        return _SELENIUM_DRIVER
+    except Exception as exc:
+        raise RuntimeError(f"No se pudo iniciar Chrome headless: {exc}") from exc
+
+
+def _render_with_browser(url: str) -> str:
+    """Renderiza BeSoccer con Chrome cuando el HTML estático viene vacío.
+
+    El diagnóstico de GitHub mostró HTTP correcto pero cero enlaces. Eso
+    significa que BeSoccer entrega a ese cliente una carcasa que necesita
+    ejecutar JavaScript. Aquí ejecutamos la página como un navegador real y
+    devolvemos el DOM ya hidratado.
+    """
+    from selenium.common.exceptions import TimeoutException
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+
+    driver = _get_selenium_driver()
+    try:
+        driver.get(url)
+    except TimeoutException:
+        # Ads/trackers pueden mantener la carga abierta; el DOM útil suele
+        # estar disponible igualmente y se comprueba justo debajo.
+        pass
+
+    try:
+        WebDriverWait(driver, 12).until(
+            lambda d: d.execute_script("return document.readyState") in ("interactive", "complete")
+        )
+    except Exception:
+        pass
+
+    # La lista de partidos puede hidratarse después del DOMContentLoaded.
+    try:
+        WebDriverWait(driver, 15).until(
+            lambda d: len(d.find_elements(By.CSS_SELECTOR, 'a[href*="/partido/"], a[href*="/match/"]')) > 0
+        )
+    except Exception:
+        # Hacemos un scroll corto para activar posibles bloques lazy-loaded.
+        try:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(1.5)
+        except Exception:
+            pass
+
+    return driver.page_source
+
+
 def fetch(url: str) -> BeautifulSoup:
+    """Descarga una página de BeSoccer con dos capas.
+
+    1) curl_cffi: rápido y barato.
+    2) Chrome/Selenium: solo para calendarios de equipos cuando BeSoccer
+       responde 200 pero sin los partidos en el HTML estático.
+
+    El modo navegador queda activado para las siguientes páginas del mismo
+    proceso después del primer HTML estático vacío, evitando repetir una
+    descarga inútil 40 veces.
+    """
+    global _FORCE_BROWSER_TEAM_PAGES
+
     errors = []
     candidates = [url]
     fallback = _www_fallback_url(url)
     if fallback and fallback not in candidates:
         candidates.append(fallback)
 
+    is_schedule = _is_team_schedule_url(url)
+
+    # Si ya comprobamos que BeSoccer necesita JS en este runner, vamos
+    # directamente al navegador para el resto de páginas de equipos.
+    if is_schedule and _FORCE_BROWSER_TEAM_PAGES:
+        for candidate in candidates:
+            try:
+                rendered = _render_with_browser(candidate)
+                if _html_has_match_refs(rendered, candidate):
+                    return BeautifulSoup(rendered, "html.parser")
+                errors.append(
+                    f"{candidate}: Chrome cargó la página pero no encontró enlaces de partido "
+                    f"(html={len(rendered)} bytes)"
+                )
+                _save_debug_html(candidate, "rendered", rendered)
+            except Exception as exc:
+                errors.append(f"{candidate} [Chrome]: {exc}")
+        raise RuntimeError(" | ".join(errors))
+
     for candidate in candidates:
         try:
             r = _get_with_browser_fingerprint(candidate)
-            return BeautifulSoup(r.text, "html.parser")
+            markup = r.text
+            soup = BeautifulSoup(markup, "html.parser")
+
+            if not is_schedule:
+                return soup
+
+            # Caso bueno: BeSoccer ya dio el calendario en HTML estático.
+            if _html_has_match_refs(markup, candidate):
+                return soup
+
+            # Caso observado en GitHub Actions: HTTP 200, pero HTML sin
+            # encuentros. Ejecutamos JavaScript con el Chrome preinstalado.
+            title = soup.title.get_text(" ", strip=True) if soup.title else "sin título"
+            errors.append(
+                f"{candidate}: HTML estático sin partidos "
+                f"(title={title!r}, html={len(markup)} bytes); probando Chrome"
+            )
+            _save_debug_html(candidate, "static", markup)
+            try:
+                rendered = _render_with_browser(candidate)
+                if _html_has_match_refs(rendered, candidate):
+                    _FORCE_BROWSER_TEAM_PAGES = True
+                    return BeautifulSoup(rendered, "html.parser")
+                rendered_soup = BeautifulSoup(rendered, "html.parser")
+                rendered_title = (
+                    rendered_soup.title.get_text(" ", strip=True)
+                    if rendered_soup.title else "sin título"
+                )
+                errors.append(
+                    f"{candidate}: Chrome tampoco encontró partidos "
+                    f"(title={rendered_title!r}, html={len(rendered)} bytes)"
+                )
+                _save_debug_html(candidate, "rendered", rendered)
+            except Exception as exc:
+                errors.append(f"{candidate} [Chrome]: {exc}")
         except Exception as exc:
             errors.append(f"{candidate}: {exc}")
 
@@ -295,6 +549,23 @@ def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
             continue
         seen_hrefs.add(absolute)
         nodes.append(node)
+
+    # Si los href están serializados dentro de JSON/script, los recuperamos
+    # directamente del markup. Normalmente Chrome ya los habrá convertido en
+    # <a>, pero este tercer camino evita otro cero silencioso.
+    if not nodes:
+        decoded = _decoded_markup(str(soup))
+        for m in RAW_MATCH_URL_RE.finditer(decoded):
+            href = m.group(0)
+            if href.startswith("//"):
+                href = "https:" + href
+            elif href.startswith("/"):
+                href = urljoin("https://es.besoccer.com", href)
+            if href in seen_hrefs:
+                continue
+            seen_hrefs.add(href)
+            fake = soup.new_tag("a", href=href)
+            nodes.append(fake)
 
     # Compatibilidad con el marcado semántico antiguo si una variante regional
     # no expone href canónico.
@@ -634,27 +905,26 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
     warnings: list[str] = []
     changed_rounds: list[int] = []
     official = _official_names(data, group)
-    urls: dict[str, str] = {}
+    # Para 2026/27 los 40 slugs ya están verificados. Los usamos como ruta
+    # primaria y evitamos que un 406 de /competicion/equipos bloquee todo el
+    # proceso. El descubrimiento dinámico queda como respaldo solo si falta
+    # algún slug en el mapa.
+    static_urls = static_team_schedule_urls(group)
+    urls: dict[str, str] = {team: static_urls[team] for team in official if team in static_urls}
     page_errors: list[str] = []
 
-    for teams_page in team_page_candidates:
-        try:
-            soup = fetch(teams_page)
-        except Exception as exc:
-            page_errors.append(f"{teams_page}: {exc}")
-            continue
-        candidate_urls = discover_team_schedule_urls(data, group, soup, teams_page)
-        urls.update(candidate_urls)
-        if len(urls) == len(official):
-            break
-
-    # Si la portada de equipos devuelve 406 (caso observado en GitHub Actions),
-    # completamos los slugs desde el mapa verificado de BeSoccer. Esto elimina
-    # un punto único de fallo sin cambiar la fuente de datos.
-    static_urls = static_team_schedule_urls(group)
-    for team in official:
-        if team not in urls and team in static_urls:
-            urls[team] = static_urls[team]
+    if len(urls) != len(official):
+        for teams_page in team_page_candidates:
+            try:
+                soup = fetch(teams_page)
+            except Exception as exc:
+                page_errors.append(f"{teams_page}: {exc}")
+                continue
+            candidate_urls = discover_team_schedule_urls(data, group, soup, teams_page)
+            for team, team_url in candidate_urls.items():
+                urls.setdefault(team, team_url)
+            if len(urls) == len(official):
+                break
 
     missing = [team for team in official if team not in urls]
     if missing:
@@ -662,10 +932,6 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
         raise RuntimeError(
             f"G{group}: faltan URLs de {len(missing)} de {len(official)} equipos. "
             + detail + "Faltan: " + ", ".join(missing)
-        )
-    if page_errors:
-        warnings.append(
-            f"G{group}: la página índice de equipos no respondió; se usaron slugs verificados de BeSoccer."
         )
 
     # El calendario JSON ya conoce los 380 cruces oficiales y su jornada.
@@ -759,6 +1025,7 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
             + ", ".join(f"J{j}={coverage[j]['detectados']}" for j in bad_rounds[:12])
             + (" ..." if len(bad_rounds) > 12 else "")
             + f" | Diagnóstico: {diagnostic}"
+            + f" | navegador_fallback={'sí' if _FORCE_BROWSER_TEAM_PAGES else 'no'}"
         )
 
     return sorted(set(changed_rounds)), warnings, coverage
