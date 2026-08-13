@@ -1,0 +1,4954 @@
+{
+  "temporada": "2026/27",
+  "last_checked": "2026-08-12T17:53:42.908506Z",
+  "grupos": {
+    "1": {
+      "jornadas": {
+        "1": {
+          "fecha": "2026-08-30",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "2": {
+          "fecha": "2026-09-06",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "3": {
+          "fecha": "2026-09-13",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "4": {
+          "fecha": "2026-09-20",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "5": {
+          "fecha": "2026-09-27",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "6": {
+          "fecha": "2026-10-04",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "7": {
+          "fecha": "2026-10-11",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "8": {
+          "fecha": "2026-10-18",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "9": {
+          "fecha": "2026-10-25",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "10": {
+          "fecha": "2026-11-01",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "11": {
+          "fecha": "2026-11-08",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "12": {
+          "fecha": "2026-11-15",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "13": {
+          "fecha": "2026-11-22",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "14": {
+          "fecha": "2026-11-29",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "15": {
+          "fecha": "2026-12-06",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "16": {
+          "fecha": "2026-12-13",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "17": {
+          "fecha": "2026-12-20",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "18": {
+          "fecha": "2027-01-03",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "19": {
+          "fecha": "2027-01-10",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "20": {
+          "fecha": "2027-01-17",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "21": {
+          "fecha": "2027-01-24",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "22": {
+          "fecha": "2027-01-31",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "23": {
+          "fecha": "2027-02-06",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "24": {
+          "fecha": "2027-02-14",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "25": {
+          "fecha": "2027-02-21",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "26": {
+          "fecha": "2027-02-28",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "27": {
+          "fecha": "2027-03-07",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "28": {
+          "fecha": "2027-03-14",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "29": {
+          "fecha": "2027-03-21",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "30": {
+          "fecha": "2027-03-28",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "31": {
+          "fecha": "2027-04-04",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "32": {
+          "fecha": "2027-04-11",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "33": {
+          "fecha": "2027-04-18",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "34": {
+          "fecha": "2027-04-25",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "35": {
+          "fecha": "2027-05-02",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "36": {
+          "fecha": "2027-05-09",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "37": {
+          "fecha": "2027-05-16",
+          "partidos": [
+            {
+              "local": "Athletic Club \"B\"",
+              "visitante": "Zamora CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CP Cacereño",
+              "visitante": "RC Deportivo Fabril",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Racing Club Ferrol",
+              "visitante": "CyD Leonesa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Lugo",
+              "visitante": "Arenas Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "AD Mérida",
+              "visitante": "Barakaldo CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Mirandés",
+              "visitante": "Real Avilés Industrial",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ourense",
+              "visitante": "CD Extremadura",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Pontevedra CF",
+              "visitante": "Real Unión Club",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Ponferradina",
+              "visitante": "CD Coria",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Logroñés",
+              "visitante": "Unionistas de Salamanca CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "38": {
+          "fecha": "2027-05-23",
+          "partidos": [
+            {
+              "local": "Arenas Club",
+              "visitante": "Pontevedra CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Barakaldo CF",
+              "visitante": "CP Cacereño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Coria",
+              "visitante": "UD Ourense",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CyD Leonesa",
+              "visitante": "Athletic Club \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "RC Deportivo Fabril",
+              "visitante": "CD Mirandés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Extremadura",
+              "visitante": "CD Lugo",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Avilés Industrial",
+              "visitante": "SD Ponferradina",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Unión Club",
+              "visitante": "UD Logroñés",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Unionistas de Salamanca CF",
+              "visitante": "AD Mérida",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Zamora CF",
+              "visitante": "Racing Club Ferrol",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        }
+      }
+    },
+    "2": {
+      "jornadas": {
+        "1": {
+          "fecha": "2026-08-30",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "2": {
+          "fecha": "2026-09-06",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "3": {
+          "fecha": "2026-09-13",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "4": {
+          "fecha": "2026-09-20",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "5": {
+          "fecha": "2026-09-27",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "6": {
+          "fecha": "2026-10-04",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "7": {
+          "fecha": "2026-10-11",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "8": {
+          "fecha": "2026-10-18",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Águilas FC",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "9": {
+          "fecha": "2026-10-25",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "10": {
+          "fecha": "2026-11-01",
+          "partidos": [
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "11": {
+          "fecha": "2026-11-08",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Águilas FC",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "12": {
+          "fecha": "2026-11-15",
+          "partidos": [
+            {
+              "local": "Algeciras CF",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "13": {
+          "fecha": "2026-11-22",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Águilas FC",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "14": {
+          "fecha": "2026-11-29",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "15": {
+          "fecha": "2026-12-06",
+          "partidos": [
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "16": {
+          "fecha": "2026-12-13",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "17": {
+          "fecha": "2026-12-20",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "18": {
+          "fecha": "2027-01-03",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "19": {
+          "fecha": "2027-01-10",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "20": {
+          "fecha": "2027-01-17",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "21": {
+          "fecha": "2027-01-24",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "22": {
+          "fecha": "2027-01-31",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "23": {
+          "fecha": "2027-02-07",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "24": {
+          "fecha": "2027-02-14",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "25": {
+          "fecha": "2027-02-21",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "26": {
+          "fecha": "2027-02-28",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "27": {
+          "fecha": "2027-03-07",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "28": {
+          "fecha": "2027-03-14",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "29": {
+          "fecha": "2027-03-21",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "30": {
+          "fecha": "2027-03-28",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "31": {
+          "fecha": "2027-04-04",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "32": {
+          "fecha": "2027-04-11",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Águilas FC",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "33": {
+          "fecha": "2027-04-18",
+          "partidos": [
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "34": {
+          "fecha": "2027-04-25",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "35": {
+          "fecha": "2027-05-02",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "36": {
+          "fecha": "2027-05-09",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "37": {
+          "fecha": "2027-05-16",
+          "partidos": [
+            {
+              "local": "AD Alcorcón",
+              "visitante": "Villarreal CF \"B\"",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Antequera CF",
+              "visitante": "Gimnàstic de Tarragona",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "FC Cartagena",
+              "visitante": "Juventud de Torremolinos CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UD Ibiza",
+              "visitante": "Hércules de Alicante CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Jaén CF",
+              "visitante": "CE Europa",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Murcia CF",
+              "visitante": "SD Huesca",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Madrid Castilla",
+              "visitante": "Águilas FC",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CD Teruel",
+              "visitante": "Atlético Madrileño",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "UE Sant Andreu",
+              "visitante": "CF Rayo Majadahonda",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Real Zaragoza",
+              "visitante": "Algeciras CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        },
+        "38": {
+          "fecha": "2027-05-23",
+          "partidos": [
+            {
+              "local": "Águilas FC",
+              "visitante": "UE Sant Andreu",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Algeciras CF",
+              "visitante": "AD Alcorcón",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Atlético Madrileño",
+              "visitante": "Antequera CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CE Europa",
+              "visitante": "Real Madrid Castilla",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Hércules de Alicante CF",
+              "visitante": "Real Zaragoza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "SD Huesca",
+              "visitante": "FC Cartagena",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Juventud de Torremolinos CF",
+              "visitante": "CD Teruel",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "CF Rayo Majadahonda",
+              "visitante": "UD Ibiza",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Gimnàstic de Tarragona",
+              "visitante": "Real Murcia CF",
+              "hora": null,
+              "tv": null
+            },
+            {
+              "local": "Villarreal CF \"B\"",
+              "visitante": "Real Jaén CF",
+              "hora": null,
+              "tv": null
+            }
+          ]
+        }
+      }
+    }
+  }
+}
