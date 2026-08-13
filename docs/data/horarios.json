@@ -10,62 +10,72 @@
             {
               "local": "Arenas Club",
               "visitante": "Racing Club Ferrol",
-              "hora": null,
-              "tv": null
+              "hora": "18:30",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "Barakaldo CF",
               "visitante": "CyD Leonesa",
-              "hora": null,
-              "tv": null
+              "hora": "17:00",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "CP Cacereño",
               "visitante": "CD Mirandés",
-              "hora": null,
-              "tv": null
+              "hora": "21:15",
+              "tv": null,
+              "fecha": "2026-08-28"
             },
             {
               "local": "AD Mérida",
               "visitante": "RC Deportivo Fabril",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "UD Ourense",
               "visitante": "SD Ponferradina",
-              "hora": null,
-              "tv": null
+              "hora": "17:00",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "Real Avilés Industrial",
               "visitante": "Pontevedra CF",
-              "hora": null,
-              "tv": null
+              "hora": "19:00",
+              "tv": null,
+              "fecha": "2026-08-28"
             },
             {
               "local": "Real Unión Club",
               "visitante": "CD Coria",
-              "hora": null,
-              "tv": null
+              "hora": "18:30",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "UD Logroñés",
               "visitante": "CD Extremadura",
-              "hora": null,
-              "tv": null
+              "hora": "19:00",
+              "tv": null,
+              "fecha": "2026-08-31"
             },
             {
               "local": "Unionistas de Salamanca CF",
               "visitante": "CD Lugo",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "Zamora CF",
               "visitante": "Athletic Club \"B\"",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-29"
             }
           ]
         },
@@ -2484,62 +2494,72 @@
             {
               "local": "Águilas FC",
               "visitante": "AD Alcorcón",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "Algeciras CF",
               "visitante": "FC Cartagena",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "Atlético Madrileño",
               "visitante": "Juventud de Torremolinos CF",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "Antequera CF",
               "visitante": "UD Ibiza",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "CE Europa",
               "visitante": "Real Jaén CF",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "Hércules de Alicante CF",
               "visitante": "Real Murcia CF",
-              "hora": null,
-              "tv": null
+              "hora": "21:30",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "SD Huesca",
               "visitante": "UE Sant Andreu",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "CF Rayo Majadahonda",
               "visitante": "Villarreal CF \"B\"",
-              "hora": null,
-              "tv": null
+              "hora": "19:15",
+              "tv": null,
+              "fecha": "2026-08-29"
             },
             {
               "local": "Gimnàstic de Tarragona",
               "visitante": "Real Zaragoza",
-              "hora": null,
-              "tv": null
+              "hora": "21:30",
+              "tv": null,
+              "fecha": "2026-08-30"
             },
             {
               "local": "CD Teruel",
               "visitante": "Real Madrid Castilla",
-              "hora": null,
-              "tv": null
+              "hora": "21:15",
+              "tv": null,
+              "fecha": "2026-08-31"
             }
           ]
         },
@@ -4950,5 +4970,8 @@
         }
       }
     }
-  }
+  },
+  "noticias_procesadas": [
+    "https://www.esfutbol.net/competiciones-rfef/1arfef-confirmados-horarios-1a-jornada-73050"
+  ]
 }
