@@ -55,6 +55,7 @@ DATE_TEXT_RE = re.compile(
     re.IGNORECASE,
 )
 LEAGUE_RE = re.compile(r"Primera\s+(?:Federaci[oó]n|RFEF|Divisi[oó]n\s+RFEF)", re.IGNORECASE)
+MATCH_HREF_RE = re.compile(r"/(?:partido|match)/([^/?#]+)/([^/?#]+)/(?:\d+)(?:/|$)", re.IGNORECASE)
 
 MONTHS = {
     "ENE": 1, "JAN": 1, "FEB": 2, "MAR": 3, "ABR": 4, "APR": 4,
@@ -273,10 +274,30 @@ def _team_text(node: Tag, itemprop: str) -> str | None:
 
 
 def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
-    """Devuelve tarjetas de partido sin depender de una sola clase CSS."""
+    """Devuelve enlaces/tarjetas de partido sin depender de clases CSS.
+
+    BeSoccer cambió el HTML de sus calendarios: en agosto de 2026 los partidos
+    siguen estando en el HTML como enlaces ``/partido/local/visitante/id``, pero
+    ya no llevan de forma fiable ``itemprop=homeTeam`` / ``awayTeam``. La URL
+    del propio partido es por tanto el ancla más estable.
+    """
     nodes: list[Tag] = []
     seen: set[int] = set()
 
+    # Vía principal: enlaces reales de partido de BeSoccer.
+    for node in soup.find_all("a", href=True):
+        href = str(node.get("href") or "")
+        path = urlparse(urljoin("https://es.besoccer.com", href)).path
+        if not MATCH_HREF_RE.search(path):
+            continue
+        texto = node.get_text(" ", strip=True)
+        if not ROUND_RE.search(texto) or not LEAGUE_RE.search(texto):
+            continue
+        seen.add(id(node))
+        nodes.append(node)
+
+    # Compatibilidad con el marcado semántico antiguo por si BeSoccer lo
+    # mantiene en alguna variante regional.
     selectors = (
         "div.comp-matches a[data-status]",
         "div.matches a[data-status]",
@@ -285,12 +306,13 @@ def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
     )
     for selector in selectors:
         for node in soup.select(selector):
+            if id(node) in seen:
+                continue
             if node.find(attrs={"itemprop": "homeTeam"}) and node.find(attrs={"itemprop": "awayTeam"}):
-                if id(node) not in seen:
-                    seen.add(id(node))
-                    nodes.append(node)
+                seen.add(id(node))
+                nodes.append(node)
 
-    # Fallback semántico.
+    # Último fallback semántico.
     if not nodes:
         for home in soup.find_all(attrs={"itemprop": "homeTeam"}):
             node = home
@@ -307,6 +329,22 @@ def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
                     nodes.append(node)
 
     return nodes
+
+
+def _teams_from_match_href(node: Tag, source_url: str) -> tuple[str | None, str | None, str | None]:
+    """Extrae local/visitante de la URL canónica del partido.
+
+    Ejemplo: /partido/cacereno/mirandes/202723981 -> cacereno, mirandes.
+    Los slugs se normalizan más adelante contra los nombres oficiales del JSON.
+    """
+    href = str(node.get("href") or "")
+    if not href:
+        return None, None, None
+    absolute = urljoin(source_url, href)
+    m = MATCH_HREF_RE.search(urlparse(absolute).path)
+    if not m:
+        return None, None, None
+    return m.group(1).replace("-", " "), m.group(2).replace("-", " "), absolute
 
 
 def _parse_starttime(node: Tag) -> tuple[str | None, str | None]:
@@ -381,8 +419,16 @@ def _parse_tv(node: Tag) -> str | None:
 def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
     matches: list[Match] = []
     for node in _match_nodes(soup):
+        # Primero intentamos el marcado semántico antiguo. Si no existe,
+        # derivamos los equipos de /partido/<local>/<visitante>/<id>.
         local = _team_text(node, "homeTeam")
         visitante = _team_text(node, "awayTeam")
+        match_source = source_url
+        if not local or not visitante:
+            local_href, visitante_href, href = _teams_from_match_href(node, source_url)
+            local = local or local_href
+            visitante = visitante or visitante_href
+            match_source = href or source_url
         if not local or not visitante:
             continue
 
@@ -410,7 +456,7 @@ def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
             hora=hora,
             resultado=resultado,
             tv=_parse_tv(node),
-            fuente=source_url,
+            fuente=match_source,
             es_primera_federacion=bool(LEAGUE_RE.search(texto)),
         ))
     return matches
@@ -418,6 +464,14 @@ def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
 
 def _official_team_name(name: str, official_names: list[str]) -> str | None:
     n = normaliza(name)
+
+    # Los enlaces de partido usan slugs. Este mapa permite resolver también
+    # casos no deducibles por texto (deportivo-b, at-madrid-b, ibiza-eivissa...).
+    for slug_map in STATIC_TEAM_SLUGS.values():
+        for official, slug in slug_map.items():
+            if official in official_names and n == normaliza(slug):
+                return official
+
     if n in ALIASES:
         alias = ALIASES[n]
         if alias in official_names:
@@ -522,7 +576,17 @@ def apply_matches(data: dict, group: int, jornada: int, matches: list[Match], mo
             continue
 
         if mode == "horarios":
-            if m.fecha and partido.get("fecha") != m.fecha:
+            # En las páginas de equipo BeSoccer muestra para TODA la temporada
+            # la fecha teórica de la jornada (normalmente domingo), aunque el
+            # partido todavía no esté programado. Solo tratamos la fecha como
+            # confirmada cuando:
+            #   a) ya existe una hora, o
+            #   b) la fecha difiere de la fecha base de la jornada.
+            # Así J3+ no pasan falsamente a "HORA PENDIENTE" por usar el domingo
+            # genérico del calendario.
+            fecha_base = jornada_data.get("fecha")
+            fecha_confirmable = bool(m.fecha and (m.hora or m.fecha != fecha_base))
+            if fecha_confirmable and partido.get("fecha") != m.fecha:
                 partido["fecha"] = m.fecha
                 changed = True
                 changes += 1
@@ -607,6 +671,8 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
             continue
 
         parsed = parse_matches(team_soup, url)
+        if not parsed:
+            warnings.append(f"G{group}: {team} descargó correctamente pero no se detectaron enlaces de Primera Federación.")
         for m in parsed:
             if not m.es_primera_federacion or not m.jornada or not (1 <= m.jornada <= 38):
                 continue
