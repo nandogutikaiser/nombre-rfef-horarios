@@ -447,6 +447,7 @@
 
       const rows = j.partidos.map(p => {
         const fav = esFavorito(p.local) || esFavorito(p.visitante);
+        const fechaPartido = p.fecha || j.fecha;
         const marcador = p.resultado
           ? `<div class="time resultado">${p.resultado}</div>`
           : `<div class="time">${p.hora || '· ​·  ​·'}</div>`;
@@ -456,14 +457,14 @@
           <div class="match">${p.local}${esFavorito(p.local) ? '<span class="star">★</span>' : ''}
             <span style="color:var(--text-muted)">vs</span>
             ${p.visitante}${esFavorito(p.visitante) ? '<span class="star">★</span>' : ''}
-            ${p.tv ? `<span class="tv">${p.tv}</span>` : (!p.hora && !p.resultado ? `<span class="tv">Hora por confirmar</span>` : '')}
+            <span class="tv">${fechaCorta(fechaPartido)}${p.tv ? ' · ' + p.tv : ''}${(!p.hora && !p.resultado) ? ' · Hora por confirmar' : ''}</span>
           </div>
         </div>`;
       }).join('');
 
       return `<div class="board">
         <div class="board-head">
-          <div class="jornada">JORNADA ${n} · ${fechaCorta(j.fecha)}</div>
+          <div class="jornada">JORNADA ${n}</div>
           <div class="board-head-actions">
             ${badge}
             <button class="ics-btn" onclick="exportarJornada(${n})">.ICS</button>
@@ -532,13 +533,16 @@
   function renderHoy(){
     const hoy = new Date().toISOString().slice(0,10);
     const jornadasObj = jornadasDeGrupo(currentGroup);
-    const jornadaHoy = Object.entries(jornadasObj).find(([n, j]) => j.fecha === hoy);
+    let jornadaNum = null, partidosHoy = [];
+    Object.entries(jornadasObj).forEach(([n, j]) => {
+      const enEsteJornada = j.partidos.filter(p => (p.fecha || j.fecha) === hoy);
+      if(enEsteJornada.length){ jornadaNum = n; partidosHoy = partidosHoy.concat(enEsteJornada); }
+    });
 
-    if(!jornadaHoy){
-      return `<p class="empty">Hoy no hay jornada programada en este grupo.</p>`;
+    if(partidosHoy.length === 0){
+      return `<p class="empty">Hoy no hay partidos programados en este grupo.</p>`;
     }
-    const [n, j] = jornadaHoy;
-    const rows = j.partidos.map(p => {
+    const rows = partidosHoy.map(p => {
       const fav = esFavorito(p.local) || esFavorito(p.visitante);
       return `<div class="row ${fav ? 'fav' : ''}">
         <div class="time">${p.resultado || p.hora || '· ​·  ​·'}</div>
@@ -548,7 +552,7 @@
       </div>`;
     }).join('');
     return `<div class="board">
-      <div class="board-head"><div class="jornada">HOY · JORNADA ${n}</div></div>
+      <div class="board-head"><div class="jornada">HOY · JORNADA ${jornadaNum}</div></div>
       ${rows}
     </div>`;
   }
@@ -697,7 +701,7 @@
   function exportarJornada(n){
     const j = jornadasDeGrupo(currentGroup)[n];
     if(!j) return;
-    const eventos = j.partidos.map(p => partidoAEvento(p, j.fecha));
+    const eventos = j.partidos.map(p => partidoAEvento(p, p.fecha || j.fecha));
     descargarICS(`primera-rfef-grupo${currentGroup}-jornada${n}.ics`, eventos);
   }
 
@@ -705,7 +709,7 @@
     const jornadasObj = jornadasDeGrupo(currentGroup);
     const eventos = [];
     Object.values(jornadasObj).forEach(j => {
-      j.partidos.forEach(p => eventos.push(partidoAEvento(p, j.fecha)));
+      j.partidos.forEach(p => eventos.push(partidoAEvento(p, p.fecha || j.fecha)));
     });
     descargarICS(`primera-rfef-grupo${currentGroup}-temporada.ics`, eventos);
   });
