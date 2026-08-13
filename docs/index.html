@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Horarios · Primera RFEF</title>
+<meta name="theme-color" content="#0B1210" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1210;
+    --panel:#131C19;
+    --tile:#0F1613;
+    --tile-edge:#050B08;
+    --text:#F2EFE4;
+    --text-muted:#7C9186;
+    --accent:#33C17B;
+    --accent-amber:#FFB454;
+    --divider:rgba(242,239,228,0.09);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding-bottom:40px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px;}
+
+  header{
+    padding:28px 16px 18px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    border-bottom:1px solid var(--divider);
+  }
+  header .brand{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    letter-spacing:0.12em;
+    font-size:13px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+  }
+  header .brand b{color:var(--text);}
+  #clock{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    color:var(--accent);
+    letter-spacing:0.05em;
+  }
+
+  h1{
+    font-family:'Space Mono',monospace;
+    font-size:28px;
+    letter-spacing:0.28em;
+    margin:22px 16px 4px;
+    text-transform:uppercase;
+  }
+  .subtitle{
+    margin:0 16px 20px;
+    color:var(--text-muted);
+    font-size:13px;
+  }
+
+  .tabs{
+    display:flex;
+    gap:8px;
+    margin:0 16px 12px;
+  }
+  .tab{
+    flex:1;
+    text-align:center;
+    padding:10px 0;
+    border:1px solid var(--divider);
+    border-radius:6px;
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:var(--text-muted);
+    background:transparent;
+    cursor:pointer;
+  }
+  .tab.active{
+    color:var(--bg);
+    background:var(--accent);
+    border-color:var(--accent);
+    font-weight:700;
+  }
+  .view-tabs .tab.active{ background:var(--text); border-color:var(--text); }
+  .view-tabs{ margin-bottom:20px; }
+
+  .board{
+    margin:0 16px 24px;
+    background:var(--panel);
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--divider);
+  }
+  .board-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    border-bottom:1px solid var(--divider);
+    gap:8px;
+  }
+  .board-head .jornada{
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.1em;
+    font-weight:700;
+  }
+  .board-head-actions{ display:flex; align-items:center; gap:8px; }
+  .badge-new{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    color:var(--bg);
+    background:var(--accent-amber);
+    padding:3px 7px;
+    border-radius:3px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .badge-done{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    color:var(--text-muted);
+    border:1px solid var(--divider);
+    padding:3px 7px;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .ics-btn{
+    background:transparent;
+    border:1px solid var(--divider);
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    padding:4px 8px;
+    border-radius:4px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .ics-btn:hover{ color:var(--text); border-color:var(--accent); }
+
+  .row{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    align-items:center;
+    padding:12px 16px;
+    border-bottom:1px solid var(--divider);
+    position:relative;
+  }
+  .row:last-child{border-bottom:none;}
+  .row.fav{ background:rgba(51,193,123,0.06); }
+  .row::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:50%;
+    height:1px;
+    background:var(--tile-edge);
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .time{
+    font-family:'Space Mono',monospace;
+    font-size:16px;
+    color:var(--accent);
+    background:var(--tile);
+    border-radius:4px;
+    padding:6px 0;
+    text-align:center;
+  }
+  .time.resultado{ color:var(--accent-amber); font-weight:700; }
+  .match{
+    padding-left:14px;
+    font-size:14px;
+    letter-spacing:0.02em;
+  }
+  .match .tv{
+    display:block;
+    margin-top:2px;
+    font-size:11px;
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+  }
+  .star{ color:var(--accent-amber); margin-left:4px; }
+
+  .empty{
+    margin:40px 16px;
+    color:var(--text-muted);
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .section-title{
+    margin:28px 16px 10px;
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    color:var(--text-muted);
+    text-transform:uppercase;
+  }
+
+  .settings{
+    margin:16px 16px 0;
+    padding:16px;
+    border:1px solid var(--divider);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .settings .label{font-size:13px;}
+  .settings .label small{display:block;color:var(--text-muted);font-size:11px;margin-top:2px;}
+  .switch{
+    width:44px;height:26px;
+    border-radius:999px;
+    background:var(--tile);
+    border:1px solid var(--divider);
+    position:relative;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .switch::after{
+    content:"";
+    position:absolute;
+    top:2px;left:2px;
+    width:20px;height:20px;
+    border-radius:50%;
+    background:var(--text-muted);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .switch.on{background:rgba(51,193,123,0.25);border-color:var(--accent);}
+  .switch.on::after{transform:translateX(18px);background:var(--accent);}
+
+  .panel{
+    margin:16px 16px 0;
+    padding:16px;
+    border:1px solid var(--divider);
+    border-radius:10px;
+  }
+  .panel-title{ font-size:13px; margin-bottom:2px; }
+  .panel-hint{ color:var(--text-muted); font-size:11px; margin-bottom:12px; }
+  .chip-grid{ display:flex; flex-wrap:wrap; gap:6px; }
+  .chip{
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid var(--divider);
+    font-size:12px;
+    color:var(--text-muted);
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip.on{ background:var(--accent); border-color:var(--accent); color:var(--bg); font-weight:600; }
+  .reminder-row{ display:flex; gap:8px; margin-top:10px; }
+  .reminder-chip{
+    flex:1; text-align:center;
+    padding:8px 0;
+    border-radius:6px;
+    border:1px solid var(--divider);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--text-muted);
+    cursor:pointer;
+  }
+  .reminder-chip.on{ background:rgba(255,180,84,0.15); border-color:var(--accent-amber); color:var(--accent-amber); }
+
+  table.standings{ width:100%; border-collapse:collapse; font-size:12px; }
+  table.standings th{
+    text-align:left;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--text-muted);
+    padding:8px 6px;
+    border-bottom:1px solid var(--divider);
+    letter-spacing:0.04em;
+  }
+  table.standings td{
+    padding:8px 6px;
+    border-bottom:1px solid var(--divider);
+  }
+  table.standings td.num, table.standings th.num{ text-align:center; font-family:'Space Mono',monospace; }
+  table.standings tr:last-child td{ border-bottom:none; }
+  table.standings td.pos{ color:var(--text-muted); font-family:'Space Mono',monospace; width:22px; }
+  .export-all{
+    width:100%;
+    margin-top:12px;
+    padding:12px;
+    background:transparent;
+    border:1px dashed var(--divider);
+    border-radius:8px;
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    cursor:pointer;
+  }
+  .export-all:hover{ color:var(--text); border-color:var(--accent); }
+
+  footer{
+    margin:28px 16px 0;
+    color:var(--text-muted);
+    font-size:11px;
+    font-family:'Space Mono',monospace;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">PRIMERA <b>RFEF</b></div>
+      <div id="clock">--:--</div>
+    </header>
+
+    <h1>Horarios</h1>
+    <p class="subtitle">Se actualiza solo en cuanto la RFEF publica jornadas o resultados nuevos.</p>
+
+    <div class="tabs view-tabs">
+      <button class="tab active" data-view="calendario">Calendario</button>
+      <button class="tab" data-view="clasificacion">Clasificación</button>
+      <button class="tab" data-view="hoy">Hoy juega</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-grupo="1">Grupo 1</button>
+      <button class="tab" data-grupo="2">Grupo 2</button>
+    </div>
+
+    <div id="content"></div>
+
+    <div class="section-title">Ajustes</div>
+
+    <div class="settings">
+      <div class="label">Notificaciones
+        <small>Avisa cuando se publique una jornada nueva</small>
+      </div>
+      <div class="switch" id="notifSwitch"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Equipos favoritos</div>
+      <div class="panel-hint">Se destacan en el calendario. Los recordatorios de partido solo avisan de sus partidos.</div>
+      <div class="chip-grid" id="favTeams"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Recordatorio antes del partido</div>
+      <div class="panel-hint">Solo para los partidos de tus equipos favoritos. Elige una o varias antelaciones.</div>
+      <div class="reminder-row" id="reminderChips">
+        <div class="reminder-chip" data-h="1">1H ANTES</div>
+        <div class="reminder-chip" data-h="2">2H ANTES</div>
+        <div class="reminder-chip" data-h="24">EL DÍA ANTES</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Exportar a tu calendario</div>
+      <div class="panel-hint">Descarga un .ics con los partidos de la temporada del grupo que estés viendo.</div>
+      <button class="export-all" id="exportAllBtn">EXPORTAR TEMPORADA COMPLETA (.ICS)</button>
+    </div>
+
+    <footer id="lastChecked"></footer>
+  </div>
+
+<script>
+  // ---------- Reloj tipo panel de estación ----------
+  function tick(){
+    const d = new Date();
+    document.getElementById('clock').textContent =
+      d.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+  }
+  tick(); setInterval(tick, 1000 * 30);
+
+  // ---------- Estado ----------
+  let currentGroup = 1;
+  let currentView = 'calendario';
+  let DATA = { grupos: {}, last_checked: null };
+  let favoritos = JSON.parse(localStorage.getItem('rfef_favoritos') || '[]');
+  let recordatorios = JSON.parse(localStorage.getItem('rfef_recordatorios') || '[]'); // ["1","2","24"]
+
+  function slug(equipo){
+    return equipo.toLowerCase()
+      .replace(/["']/g, '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // quita acentos
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function esFavorito(equipo){
+    return favoritos.includes(slug(equipo));
+  }
+
+  async function loadData(){
+    try{
+      const res = await fetch('data/horarios.json', {cache:'no-store'});
+      DATA = await res.json();
+    }catch(e){
+      console.error('No se pudo cargar horarios.json', e);
+    }
+    renderTodo();
+  }
+
+  function fechaCorta(iso){
+    if(!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('es-ES', {weekday:'short', day:'2-digit', month:'short'}).toUpperCase();
+  }
+
+  function jornadasDeGrupo(grupo){
+    return (DATA.grupos && DATA.grupos[String(grupo)] && DATA.grupos[String(grupo)].jornadas) || {};
+  }
+
+  // ---------- Vista: Calendario ----------
+  function renderCalendario(){
+    const jornadasObj = jornadasDeGrupo(currentGroup);
+    const nums = Object.keys(jornadasObj).map(Number).sort((a,b) => a - b);
+
+    if(nums.length === 0){
+      return `<p class="empty">Todavía no hay calendario cargado para este grupo.</p>`;
+    }
+
+    const hoy = new Date().toISOString().slice(0,10);
+    let jornadaDestacada = nums.find(n => jornadasObj[n].fecha >= hoy) || nums[nums.length - 1];
+    const idx = nums.indexOf(jornadaDestacada);
+    const visibles = nums.slice(Math.max(0, idx - 1), idx + 6);
+
+    return visibles.map(n => {
+      const j = jornadasObj[n];
+      const todasJugadas = j.partidos.every(p => p.resultado);
+      const todasConfirmadas = j.partidos.every(p => p.hora);
+      let badge = '';
+      if(todasJugadas) badge = '<span class="badge-done">FINALIZADA</span>';
+      else if(!todasConfirmadas) badge = '<span class="badge-new">POR CONFIRMAR</span>';
+
+      const rows = j.partidos.map(p => {
+        const fav = esFavorito(p.local) || esFavorito(p.visitante);
+        const marcador = p.resultado
+          ? `<div class="time resultado">${p.resultado}</div>`
+          : `<div class="time">${p.hora || '· ​·  ​·'}</div>`;
+        return `
+        <div class="row ${fav ? 'fav' : ''}">
+          ${marcador}
+          <div class="match">${p.local}${esFavorito(p.local) ? '<span class="star">★</span>' : ''}
+            <span style="color:var(--text-muted)">vs</span>
+            ${p.visitante}${esFavorito(p.visitante) ? '<span class="star">★</span>' : ''}
+            ${p.tv ? `<span class="tv">${p.tv}</span>` : (!p.hora && !p.resultado ? `<span class="tv">Hora por confirmar</span>` : '')}
+          </div>
+        </div>`;
+      }).join('');
+
+      return `<div class="board">
+        <div class="board-head">
+          <div class="jornada">JORNADA ${n} · ${fechaCorta(j.fecha)}</div>
+          <div class="board-head-actions">
+            ${badge}
+            <button class="ics-btn" onclick="exportarJornada(${n})">.ICS</button>
+          </div>
+        </div>
+        ${rows}
+      </div>`;
+    }).join('');
+  }
+
+  // ---------- Vista: Clasificación ----------
+  function computeStandings(grupo){
+    const jornadasObj = jornadasDeGrupo(grupo);
+    const tabla = {};
+    const asegura = (equipo) => {
+      if(!tabla[equipo]) tabla[equipo] = {equipo, pj:0, g:0, e:0, p:0, gf:0, gc:0, pts:0};
+      return tabla[equipo];
+    };
+    Object.values(jornadasObj).forEach(j => {
+      j.partidos.forEach(p => {
+        if(!p.resultado) return;
+        const [gl, gv] = p.resultado.split('-').map(Number);
+        const local = asegura(p.local), visit = asegura(p.visitante);
+        local.pj++; visit.pj++;
+        local.gf += gl; local.gc += gv;
+        visit.gf += gv; visit.gc += gl;
+        if(gl > gv){ local.g++; local.pts += 3; visit.p++; }
+        else if(gl < gv){ visit.g++; visit.pts += 3; local.p++; }
+        else { local.e++; visit.e++; local.pts++; visit.pts++; }
+      });
+    });
+    return Object.values(tabla).sort((a,b) =>
+      b.pts - a.pts || (b.gf-b.gc) - (a.gf-a.gc) || b.gf - a.gf
+    );
+  }
+
+  function renderClasificacion(){
+    const tabla = computeStandings(currentGroup);
+    if(tabla.length === 0){
+      return `<p class="empty">Todavía no hay resultados para calcular la clasificación de este grupo.</p>`;
+    }
+    const filas = tabla.map((t, i) => `
+      <tr>
+        <td class="pos">${i+1}</td>
+        <td>${t.equipo}${esFavorito(t.equipo) ? '<span class="star">★</span>' : ''}</td>
+        <td class="num">${t.pj}</td>
+        <td class="num">${t.g}</td>
+        <td class="num">${t.e}</td>
+        <td class="num">${t.p}</td>
+        <td class="num">${t.gf - t.gc}</td>
+        <td class="num" style="color:var(--accent);font-weight:700">${t.pts}</td>
+      </tr>`).join('');
+
+    return `<div class="board">
+      <table class="standings">
+        <thead><tr>
+          <th></th><th>Equipo</th><th class="num">PJ</th><th class="num">G</th>
+          <th class="num">E</th><th class="num">P</th><th class="num">DG</th><th class="num">PTS</th>
+        </tr></thead>
+        <tbody>${filas}</tbody>
+      </table>
+    </div>`;
+  }
+
+  // ---------- Vista: Hoy juega ----------
+  function renderHoy(){
+    const hoy = new Date().toISOString().slice(0,10);
+    const jornadasObj = jornadasDeGrupo(currentGroup);
+    const jornadaHoy = Object.entries(jornadasObj).find(([n, j]) => j.fecha === hoy);
+
+    if(!jornadaHoy){
+      return `<p class="empty">Hoy no hay jornada programada en este grupo.</p>`;
+    }
+    const [n, j] = jornadaHoy;
+    const rows = j.partidos.map(p => {
+      const fav = esFavorito(p.local) || esFavorito(p.visitante);
+      return `<div class="row ${fav ? 'fav' : ''}">
+        <div class="time">${p.resultado || p.hora || '· ​·  ​·'}</div>
+        <div class="match">${p.local} <span style="color:var(--text-muted)">vs</span> ${p.visitante}
+          ${p.tv ? `<span class="tv">${p.tv}</span>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="board">
+      <div class="board-head"><div class="jornada">HOY · JORNADA ${n}</div></div>
+      ${rows}
+    </div>`;
+  }
+
+  // ---------- Render general ----------
+  function renderTodo(){
+    const content = document.getElementById('content');
+    if(currentView === 'calendario') content.innerHTML = renderCalendario();
+    else if(currentView === 'clasificacion') content.innerHTML = renderClasificacion();
+    else content.innerHTML = renderHoy();
+
+    const lc = DATA.last_checked ? new Date(DATA.last_checked) : null;
+    document.getElementById('lastChecked').textContent = lc
+      ? `Última comprobación: ${lc.toLocaleString('es-ES')}`
+      : '';
+
+    renderFavTeams();
+  }
+
+  document.querySelectorAll('.view-tabs .tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-tabs .tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentView = btn.dataset.view;
+      renderTodo();
+    });
+  });
+
+  document.querySelectorAll('.tabs:not(.view-tabs) .tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tabs:not(.view-tabs) .tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentGroup = Number(btn.dataset.grupo);
+      renderTodo();
+    });
+  });
+
+  // ---------- Equipos favoritos ----------
+  function todosLosEquipos(){
+    const equipos = new Set();
+    ['1','2'].forEach(g => {
+      Object.values(jornadasDeGrupo(g)).forEach(j => {
+        j.partidos.forEach(p => { equipos.add(p.local); equipos.add(p.visitante); });
+      });
+    });
+    return Array.from(equipos).sort();
+  }
+
+  function renderFavTeams(){
+    const cont = document.getElementById('favTeams');
+    const equipos = todosLosEquipos();
+    if(equipos.length === 0){ cont.innerHTML = ''; return; }
+    cont.innerHTML = equipos.map(eq => {
+      const s = slug(eq);
+      return `<div class="chip ${favoritos.includes(s) ? 'on' : ''}" data-slug="${s}" data-nombre="${eq}">${eq}</div>`;
+    }).join('');
+    cont.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => toggleFavorito(chip.dataset.slug, chip.dataset.nombre, chip));
+    });
+  }
+
+  function toggleFavorito(s, nombre, chipEl){
+    const activo = favoritos.includes(s);
+    if(activo){
+      favoritos = favoritos.filter(f => f !== s);
+      quitarTagOneSignal(`equipo_${s}`);
+    } else {
+      favoritos.push(s);
+      ponerTagOneSignal(`equipo_${s}`, '1');
+    }
+    localStorage.setItem('rfef_favoritos', JSON.stringify(favoritos));
+    chipEl.classList.toggle('on');
+    renderTodo(); // para refrescar estrellas / filas destacadas
+  }
+
+  // ---------- Recordatorios ----------
+  function pintarReminderChips(){
+    document.querySelectorAll('.reminder-chip').forEach(chip => {
+      chip.classList.toggle('on', recordatorios.includes(chip.dataset.h));
+    });
+  }
+  pintarReminderChips();
+
+  document.querySelectorAll('.reminder-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const h = chip.dataset.h;
+      if(recordatorios.includes(h)){
+        recordatorios = recordatorios.filter(x => x !== h);
+        quitarTagOneSignal(`recordatorio_${h}h`);
+      } else {
+        recordatorios.push(h);
+        ponerTagOneSignal(`recordatorio_${h}h`, '1');
+      }
+      localStorage.setItem('rfef_recordatorios', JSON.stringify(recordatorios));
+      chip.classList.toggle('on');
+    });
+  });
+
+  // ---------- Exportar a calendario (.ics) ----------
+  function icsEscape(s){ return String(s).replace(/([,;])/g, '\\$1'); }
+
+  function partidoAEvento(p, fechaISO){
+    const uid = `${slug(p.local)}-${slug(p.visitante)}-${fechaISO}@rfef-horarios`;
+    if(p.hora){
+      const [hh, mm] = p.hora.split(':');
+      const start = fechaISO.replace(/-/g,'') + 'T' + hh.padStart(2,'0') + mm + '00';
+      const startDate = new Date(`${fechaISO}T${p.hora}:00`);
+      const end = new Date(startDate.getTime() + 2*60*60*1000);
+      const endStr = end.toISOString().slice(0,19).replace(/[-:]/g,'').replace('T','T');
+      return [
+        'BEGIN:VEVENT',
+        `UID:${uid}`,
+        `DTSTART:${start}`,
+        `DTEND:${endStr}`,
+        `SUMMARY:${icsEscape(p.local + ' vs ' + p.visitante)}`,
+        `DESCRIPTION:${icsEscape('Primera RFEF' + (p.tv ? ' · ' + p.tv : ''))}`,
+        'END:VEVENT',
+      ].join('\r\n');
+    }
+    const dstr = fechaISO.replace(/-/g,'');
+    return [
+      'BEGIN:VEVENT',
+      `UID:${uid}`,
+      `DTSTART;VALUE=DATE:${dstr}`,
+      `SUMMARY:${icsEscape(p.local + ' vs ' + p.visitante + ' (hora por confirmar)')}`,
+      'END:VEVENT',
+    ].join('\r\n');
+  }
+
+  function descargarICS(nombre, eventos){
+    const contenido = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Horarios Primera RFEF//ES',
+      ...eventos,
+      'END:VCALENDAR',
+    ].join('\r\n');
+    const blob = new Blob([contenido], {type: 'text/calendar'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nombre;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function exportarJornada(n){
+    const j = jornadasDeGrupo(currentGroup)[n];
+    if(!j) return;
+    const eventos = j.partidos.map(p => partidoAEvento(p, j.fecha));
+    descargarICS(`primera-rfef-grupo${currentGroup}-jornada${n}.ics`, eventos);
+  }
+
+  document.getElementById('exportAllBtn').addEventListener('click', () => {
+    const jornadasObj = jornadasDeGrupo(currentGroup);
+    const eventos = [];
+    Object.values(jornadasObj).forEach(j => {
+      j.partidos.forEach(p => eventos.push(partidoAEvento(p, j.fecha)));
+    });
+    descargarICS(`primera-rfef-grupo${currentGroup}-temporada.ics`, eventos);
+  });
+
+  // ---------- Service worker (offline + shell de la PWA) ----------
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('service-worker.js');
+  }
+
+  // ---------- Notificaciones push vía OneSignal ----------
+  let oneSignalRef = null;
+  function ponerTagOneSignal(k, v){ if(oneSignalRef) oneSignalRef.User.addTag(k, v); }
+  function quitarTagOneSignal(k){ if(oneSignalRef) oneSignalRef.User.removeTag(k); }
+
+  const notifSwitch = document.getElementById('notifSwitch');
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "TU_ONESIGNAL_APP_ID", // sustituir por el App ID real de OneSignal
+      notifyButton: { enable: false },
+    });
+    oneSignalRef = OneSignal;
+
+    const subscribed = OneSignal.User.PushSubscription.optedIn;
+    notifSwitch.classList.toggle('on', !!subscribed);
+
+    notifSwitch.addEventListener('click', async () => {
+      const optedIn = OneSignal.User.PushSubscription.optedIn;
+      if(optedIn){
+        await OneSignal.User.PushSubscription.optOut();
+        notifSwitch.classList.remove('on');
+      } else {
+        await OneSignal.Notifications.requestPermission();
+        await OneSignal.User.PushSubscription.optIn();
+        notifSwitch.classList.add('on');
+        // Vuelca a OneSignal las preferencias que ya tuviera guardadas localmente
+        favoritos.forEach(s => OneSignal.User.addTag(`equipo_${s}`, '1'));
+        recordatorios.forEach(h => OneSignal.User.addTag(`recordatorio_${h}h`, '1'));
+      }
+    });
+  });
+
+  loadData();
+</script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+</body>
+</html>
