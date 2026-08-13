@@ -38,6 +38,8 @@ JORNADA_RANGO_RE = re.compile(
 )
 GRUPO_RE = re.compile(r"grupo\s*([12])", re.IGNORECASE)
 HORA_RE = re.compile(r"\b(\d{1,2})[:hH](\d{2})\b")
+# Cabeceras de fecha del tipo "Viernes 28.08.2026" o "28/08/2026"
+FECHA_RE = re.compile(r"\b(\d{1,2})[./](\d{1,2})[./](\d{4})\b")
 
 
 def load_data():
@@ -87,12 +89,25 @@ def normaliza(s):
 
 
 def procesa_articulo(url, jornadas, grupos, data):
-    """Intenta extraer hora/TV por partido y rellenarlo sobre el calendario
-    base. Devuelve la lista de (grupo, jornada) para los que se ha podido
-    confirmar al menos un horario (para la notificación)."""
+    """Intenta extraer hora/fecha/TV por partido y rellenarlo sobre el
+    calendario base. La RFEF suele listar los partidos bajo cabeceras de
+    fecha ("Viernes 28.08.2026", ...), así que se recorre el texto en
+    orden y se recuerda la última fecha vista para asignarla a los
+    partidos que aparecen debajo. Devuelve la lista de (grupo, jornada)
+    para los que se ha podido confirmar al menos un horario."""
     soup = fetch(url)
     texto = soup.get_text("\n", strip=True)
-    lineas = [l for l in texto.split("\n") if HORA_RE.search(l)]
+
+    # (fecha_iso_o_None, linea) en el orden en que aparecen en el artículo
+    lineas_con_fecha = []
+    fecha_actual = None
+    for linea in texto.split("\n"):
+        fm = FECHA_RE.search(linea)
+        if fm:
+            d, mth, y = fm.groups()
+            fecha_actual = f"{y}-{mth.zfill(2)}-{d.zfill(2)}"
+        if HORA_RE.search(linea):
+            lineas_con_fecha.append((fecha_actual, linea))
 
     confirmadas = []
     for grupo in grupos:
@@ -104,11 +119,13 @@ def procesa_articulo(url, jornadas, grupos, data):
             for partido in jornada_data["partidos"]:
                 if partido["hora"]:
                     continue  # ya confirmado en una pasada anterior
-                for linea in lineas:
+                for fecha_linea, linea in lineas_con_fecha:
                     if partido["local"] in linea and partido["visitante"] in linea:
                         m = HORA_RE.search(linea)
                         if m:
                             partido["hora"] = f"{m.group(1).zfill(2)}:{m.group(2)}"
+                            if fecha_linea:
+                                partido["fecha"] = fecha_linea
                             partido["fuente"] = url
                             alguna = True
                         break
