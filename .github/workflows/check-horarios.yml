@@ -1,0 +1,62 @@
+name: Comprobar horarios Primera RFEF
+
+on:
+  schedule:
+    # Cada día a las 09:00 y 19:00 UTC (10:00 y 20:00 hora España en invierno)
+    - cron: "0 9,19 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r scraper/requirements.txt
+
+      - name: Ejecutar scraper de horarios
+        id: scrape
+        run: |
+          OUTPUT=$(python scraper/scraper.py)
+          echo "result<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$OUTPUT" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Ejecutar scraper de resultados
+        id: resultados
+        run: |
+          OUTPUT=$(python scraper/resultados.py)
+          echo "result<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$OUTPUT" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Notificar si hay jornadas nuevas
+        if: steps.scrape.outputs.result != ''
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+        run: |
+          python scraper/notify.py '${{ steps.scrape.outputs.result }}'
+
+      - name: Programar recordatorios antes de los partidos
+        if: steps.scrape.outputs.result != ''
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+        run: |
+          python scraper/reminders.py '${{ steps.scrape.outputs.result }}'
+
+      - name: Guardar cambios en el repo
+        run: |
+          git config user.name "horarios-bot"
+          git config user.email "actions@github.com"
+          git add docs/data/horarios.json
+          git diff --cached --quiet || git commit -m "Actualiza horarios y resultados [automático]"
+          git push
