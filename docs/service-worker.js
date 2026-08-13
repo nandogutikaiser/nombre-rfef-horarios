@@ -1,4 +1,4 @@
-const CACHE = "horarios-rfef-v1";
+const CACHE = "horarios-rfef-v4";
 const SHELL = ["./", "./index.html", "./manifest.json", "./data/horarios.json"];
 
 self.addEventListener("install", (event) => {

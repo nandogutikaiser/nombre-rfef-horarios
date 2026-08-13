@@ -19,7 +19,8 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -28,6 +29,7 @@ OFFSETS_HORAS = [1, 2, 24]
 
 import pathlib
 DATA_FILE = pathlib.Path(__file__).resolve().parent.parent / "docs" / "data" / "horarios.json"
+MADRID = ZoneInfo("Europe/Madrid")
 
 
 def slug(equipo):
@@ -48,14 +50,14 @@ def cargar_partidos_confirmados(new_entries):
                 continue
             for p in jornada["partidos"]:
                 if p.get("hora"):
-                    partidos.append((jornada["fecha"], p))
+                    partidos.append((p.get("fecha") or jornada["fecha"], p))
     return partidos
 
 
 def programa_recordatorio(fecha, partido, horas_antes):
-    kickoff = datetime.strptime(f"{fecha} {partido['hora']}", "%Y-%m-%d %H:%M")
-    send_after = kickoff - timedelta(hours=horas_antes)
-    if send_after < datetime.now():
+    kickoff_local = datetime.strptime(f"{fecha} {partido['hora']}", "%Y-%m-%d %H:%M").replace(tzinfo=MADRID)
+    send_after = kickoff_local - timedelta(hours=horas_antes)
+    if send_after < datetime.now(MADRID):
         return None  # ya no tiene sentido programarlo
 
     app_id = os.environ["ONESIGNAL_APP_ID"]
@@ -82,7 +84,7 @@ def programa_recordatorio(fecha, partido, horas_antes):
         "app_id": app_id,
         "headings": {"es": "Primera RFEF"},
         "contents": {"es": f"En {horas_antes}h: {partido['local']} - {partido['visitante']}"},
-        "send_after": send_after.strftime("%Y-%m-%d %H:%M:%S GMT+0000"),
+        "send_after": send_after.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S GMT+0000"),
     }
 
     resultados = []

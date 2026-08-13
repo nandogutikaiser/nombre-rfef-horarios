@@ -310,6 +310,178 @@
   }
   .export-all:hover{ color:var(--text); border-color:var(--accent); }
 
+  .day-block{ border-bottom:1px solid var(--divider); }
+  .day-block:last-child{ border-bottom:none; }
+  .day-head{
+    padding:9px 16px;
+    background:rgba(242,239,228,0.035);
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    font-weight:700;
+  }
+  .row{
+    grid-template-columns:72px minmax(0,1fr) 36px;
+    gap:10px;
+    padding:11px 12px 11px 16px;
+  }
+  .row::after{ display:none; }
+  .match{ padding-left:0; min-width:0; }
+  .team-line{ display:flex; flex-wrap:wrap; align-items:center; gap:5px; line-height:1.55; }
+  .group-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:25px;
+    padding:2px 5px;
+    border:1px solid var(--divider);
+    border-radius:4px;
+    color:var(--accent);
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    vertical-align:1px;
+  }
+  .match-star{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--divider);
+    border-radius:7px;
+    background:transparent;
+    color:var(--text-muted);
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .match-star.on{ color:var(--accent-amber); border-color:rgba(255,180,84,.45); background:rgba(255,180,84,.08); }
+  .row.match-fav{ background:rgba(255,180,84,0.045); }
+  .saved-note{ color:var(--accent-amber); }
+
+  .calendar-tools{
+    margin:0 16px 16px;
+    padding:14px;
+    border:1px solid var(--divider);
+    border-radius:10px;
+    background:var(--panel);
+  }
+  .calendar-tools-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:10px;
+    align-items:end;
+  }
+  .calendar-tools label{
+    display:block;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.08em;
+    color:var(--text-muted);
+    margin-bottom:6px;
+    text-transform:uppercase;
+  }
+  .team-select{
+    width:100%;
+    min-width:0;
+    padding:10px 34px 10px 10px;
+    border-radius:7px;
+    border:1px solid var(--divider);
+    background:var(--tile);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+  }
+  .filter-buttons{ display:flex; gap:6px; }
+  .filter-btn{
+    padding:10px 11px;
+    border-radius:7px;
+    border:1px solid var(--divider);
+    background:transparent;
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+  .filter-btn.active{
+    background:var(--text);
+    color:var(--bg);
+    border-color:var(--text);
+    font-weight:700;
+  }
+  .calendar-summary{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--divider);
+    color:var(--text-muted);
+    font-size:12px;
+    line-height:1.5;
+  }
+  .calendar-summary strong{ color:var(--text); font-weight:600; }
+
+  .status-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    margin-top:4px;
+    padding:3px 6px;
+    border-radius:4px;
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    letter-spacing:.05em;
+    font-weight:700;
+    border:1px solid var(--divider);
+    color:var(--text-muted);
+  }
+  .status-chip.confirmado{ color:var(--accent); border-color:rgba(51,193,123,.4); background:rgba(51,193,123,.07); }
+  .status-chip.hora-pendiente{ color:var(--accent-amber); border-color:rgba(255,180,84,.4); background:rgba(255,180,84,.07); }
+  .status-chip.por-programar{ color:var(--text-muted); background:rgba(242,239,228,.025); }
+  .status-chip.finalizado{ color:var(--text-muted); }
+  .row.hora-pendiente{ background:rgba(255,180,84,.025); }
+  .row.por-programar{ opacity:.72; }
+  .row.por-programar .time{ color:var(--text-muted); }
+  .time.pending-time{ color:var(--accent-amber); font-size:12px; font-weight:700; }
+  .time.unscheduled{ color:var(--text-muted); font-size:12px; }
+  .pending-day-head{ color:var(--accent-amber); }
+  .board-progress{
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    color:var(--text-muted);
+    white-space:nowrap;
+  }
+  .badge-confirmed{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:var(--accent);
+    border:1px solid rgba(51,193,123,.35);
+    padding:3px 7px;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .badge-partial{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:var(--accent-amber);
+    border:1px solid rgba(255,180,84,.35);
+    padding:3px 7px;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  @media(max-width:430px){
+    .calendar-tools-grid{ grid-template-columns:1fr; }
+    .filter-buttons{ width:100%; }
+    .filter-btn{ flex:1; }
+  }
+
+  .view-tabs{ flex-wrap:wrap; }
+  .view-tabs .tab{ min-width:calc(50% - 4px); flex:1 1 calc(50% - 4px); }
+
   footer{
     margin:28px 16px 0;
     color:var(--text-muted);
@@ -326,15 +498,16 @@
     </header>
 
     <h1>Horarios</h1>
-    <p class="subtitle">Se actualiza solo en cuanto la RFEF publica jornadas o resultados nuevos.</p>
+    <p class="subtitle">Calendario unificado de los dos grupos, actualizado automáticamente desde BeSoccer.</p>
 
     <div class="tabs view-tabs">
       <button class="tab active" data-view="calendario">Calendario</button>
+      <button class="tab" data-view="favoritos">Favoritos</button>
       <button class="tab" data-view="clasificacion">Clasificación</button>
-      <button class="tab" data-view="hoy">Hoy juega</button>
+      <button class="tab" data-view="hoy">Hoy</button>
     </div>
 
-    <div class="tabs">
+    <div class="tabs" id="groupTabs" style="display:none">
       <button class="tab active" data-grupo="1">Grupo 1</button>
       <button class="tab" data-grupo="2">Grupo 2</button>
     </div>
@@ -351,8 +524,8 @@
     </div>
 
     <div class="panel">
-      <div class="panel-title">Equipos favoritos</div>
-      <div class="panel-hint">Se destacan en el calendario. Los recordatorios de partido solo avisan de sus partidos.</div>
+      <div class="panel-title">Equipos para recordatorios</div>
+      <div class="panel-hint">Esta selección es independiente de las estrellas del calendario y solo se usa para tus avisos push.</div>
       <div class="chip-grid" id="favTeams"></div>
     </div>
 
@@ -368,8 +541,8 @@
 
     <div class="panel">
       <div class="panel-title">Exportar a tu calendario</div>
-      <div class="panel-hint">Descarga un .ics con los partidos de la temporada del grupo que estés viendo.</div>
-      <button class="export-all" id="exportAllBtn">EXPORTAR TEMPORADA COMPLETA (.ICS)</button>
+      <div class="panel-hint">Descarga un .ics solo con partidos que ya tienen un día confirmado. Los que aún están por programar no se exportan.</div>
+      <button class="export-all" id="exportAllBtn">EXPORTAR AMBOS GRUPOS (.ICS)</button>
     </div>
 
     <footer id="lastChecked"></footer>
@@ -385,22 +558,61 @@
   tick(); setInterval(tick, 1000 * 30);
 
   // ---------- Estado ----------
-  let currentGroup = 1;
+  let currentGroup = 1; // solo se usa en la clasificación
   let currentView = 'calendario';
   let DATA = { grupos: {}, last_checked: null };
-  let favoritos = JSON.parse(localStorage.getItem('rfef_favoritos') || '[]');
-  let recordatorios = JSON.parse(localStorage.getItem('rfef_recordatorios') || '[]'); // ["1","2","24"]
 
-  function slug(equipo){
-    return equipo.toLowerCase()
+  // Favoritos de equipo: se mantienen únicamente para recordatorios push.
+  let favoritos = JSON.parse(localStorage.getItem('rfef_favoritos') || '[]');
+  // Favoritos de partido: estrellas del calendario.
+  let partidosFavoritos = JSON.parse(localStorage.getItem('rfef_partidos_favoritos') || '[]');
+  let recordatorios = JSON.parse(localStorage.getItem('rfef_recordatorios') || '[]'); // ["1","2","24"]
+  let calendarTeam = localStorage.getItem('rfef_calendar_team') || '';
+  let soloConfirmados = localStorage.getItem('rfef_solo_confirmados') === '1';
+
+  function slug(texto){
+    return String(texto).toLowerCase()
       .replace(/["']/g, '')
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // quita acentos
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
   }
 
+  function esc(texto){
+    return String(texto ?? '').replace(/[&<>"']/g, ch => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'
+    }[ch]));
+  }
+
   function esFavorito(equipo){
     return favoritos.includes(slug(equipo));
+  }
+
+  function partidoId(p){
+    return `g${p.grupo}-j${p.jornada}-${slug(p.local)}-${slug(p.visitante)}`;
+  }
+
+  function esPartidoFavorito(p){
+    return partidosFavoritos.includes(partidoId(p));
+  }
+
+  function estadoProgramacion(p){
+    if(p.resultado) return {key:'finalizado', label:'FINALIZADO'};
+    if(p.fecha && p.hora) return {key:'confirmado', label:'CONFIRMADO'};
+    if(p.fecha && !p.hora) return {key:'hora-pendiente', label:'HORA PENDIENTE'};
+    return {key:'por-programar', label:'POR PROGRAMAR'};
+  }
+
+  function tieneHorarioConfirmado(p){
+    return !!p.resultado || !!(p.fecha && p.hora);
+  }
+
+  function hoyMadridISO(){
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone:'Europe/Madrid', year:'numeric', month:'2-digit', day:'2-digit'
+    }).formatToParts(new Date());
+    const o = Object.fromEntries(parts.map(x => [x.type, x.value]));
+    return `${o.year}-${o.month}-${o.day}`;
   }
 
   async function loadData(){
@@ -415,64 +627,247 @@
 
   function fechaCorta(iso){
     if(!iso) return '';
-    const d = new Date(iso + 'T00:00:00');
+    const d = new Date(iso + 'T12:00:00');
     return d.toLocaleDateString('es-ES', {weekday:'short', day:'2-digit', month:'short'}).toUpperCase();
+  }
+
+  function fechaLarga(iso){
+    if(!iso) return 'FECHA POR CONFIRMAR';
+    const d = new Date(iso + 'T12:00:00');
+    return d.toLocaleDateString('es-ES', {weekday:'long', day:'numeric', month:'long'}).toUpperCase();
   }
 
   function jornadasDeGrupo(grupo){
     return (DATA.grupos && DATA.grupos[String(grupo)] && DATA.grupos[String(grupo)].jornadas) || {};
   }
 
-  // ---------- Vista: Calendario ----------
-  function renderCalendario(){
-    const jornadasObj = jornadasDeGrupo(currentGroup);
-    const nums = Object.keys(jornadasObj).map(Number).sort((a,b) => a - b);
+  function numerosJornada(){
+    const nums = new Set();
+    ['1','2'].forEach(g => Object.keys(jornadasDeGrupo(g)).forEach(n => nums.add(Number(n))));
+    return Array.from(nums).sort((a,b) => a-b);
+  }
 
-    if(nums.length === 0){
-      return `<p class="empty">Todavía no hay calendario cargado para este grupo.</p>`;
+  function partidosDeJornada(n){
+    const partidos = [];
+    ['1','2'].forEach(g => {
+      const j = jornadasDeGrupo(g)[n];
+      if(!j) return;
+      (j.partidos || []).forEach(p => partidos.push({
+        ...p,
+        grupo:Number(g),
+        jornada:Number(n),
+        fechaBase:j.fecha || null
+      }));
+    });
+    return partidos;
+  }
+
+  function todosLosPartidos(){
+    return numerosJornada().flatMap(n => partidosDeJornada(n));
+  }
+
+  function fechaReferenciaJornada(n){
+    return jornadasDeGrupo('1')[n]?.fecha || jornadasDeGrupo('2')[n]?.fecha || null;
+  }
+
+  function ordenarPartidos(a,b){
+    const fa = a.fecha || '9999-12-31';
+    const fb = b.fecha || '9999-12-31';
+    if(fa !== fb) return fa.localeCompare(fb);
+    const ha = a.hora || '99:99';
+    const hb = b.hora || '99:99';
+    if(ha !== hb) return ha.localeCompare(hb);
+    return a.local.localeCompare(b.local, 'es');
+  }
+
+  function agruparPorDia(partidos){
+    const grupos = new Map();
+    partidos.slice().sort(ordenarPartidos).forEach(p => {
+      const key = p.fecha || '__sin_fecha__';
+      if(!grupos.has(key)) grupos.set(key, []);
+      grupos.get(key).push(p);
+    });
+    return Array.from(grupos.entries()).sort(([a],[b]) => {
+      if(a === '__sin_fecha__') return 1;
+      if(b === '__sin_fecha__') return -1;
+      return a.localeCompare(b);
+    });
+  }
+
+  function renderPartido(p){
+    const fav = esPartidoFavorito(p);
+    const estado = estadoProgramacion(p);
+    let marcador = '';
+    if(p.resultado){
+      marcador = `<div class="time resultado">${esc(p.resultado)}</div>`;
+    } else if(p.hora){
+      marcador = `<div class="time">${esc(p.hora)}</div>`;
+    } else if(p.fecha){
+      marcador = `<div class="time pending-time">PTE.</div>`;
+    } else {
+      marcador = `<div class="time unscheduled">--:--</div>`;
     }
 
-    const hoy = new Date().toISOString().slice(0,10);
-    let jornadaDestacada = nums.find(n => jornadasObj[n].fecha >= hoy) || nums[nums.length - 1];
-    const idx = nums.indexOf(jornadaDestacada);
-    const visibles = nums.slice(Math.max(0, idx - 1), idx + 6);
+    const detalles = [];
+    if(p.tv) detalles.push(esc(p.tv));
+    if(estado.key === 'hora-pendiente') detalles.push('Día confirmado · hora por confirmar');
+    if(estado.key === 'por-programar') detalles.push('Fecha y hora por confirmar');
 
-    return visibles.map(n => {
-      const j = jornadasObj[n];
-      const todasJugadas = j.partidos.every(p => p.resultado);
-      const todasConfirmadas = j.partidos.every(p => p.hora);
-      let badge = '';
-      if(todasJugadas) badge = '<span class="badge-done">FINALIZADA</span>';
-      else if(!todasConfirmadas) badge = '<span class="badge-new">POR CONFIRMAR</span>';
-
-      const rows = j.partidos.map(p => {
-        const fav = esFavorito(p.local) || esFavorito(p.visitante);
-        const fechaPartido = p.fecha || j.fecha;
-        const marcador = p.resultado
-          ? `<div class="time resultado">${p.resultado}</div>`
-          : `<div class="time">${p.hora || '· ​·  ​·'}</div>`;
-        return `
-        <div class="row ${fav ? 'fav' : ''}">
-          ${marcador}
-          <div class="match">${p.local}${esFavorito(p.local) ? '<span class="star">★</span>' : ''}
+    return `
+      <div class="row ${fav ? 'match-fav' : ''} ${estado.key}">
+        ${marcador}
+        <div class="match">
+          <div class="team-line">
+            <span>${esc(p.local)}</span><span class="group-badge">G${p.grupo}</span>
             <span style="color:var(--text-muted)">vs</span>
-            ${p.visitante}${esFavorito(p.visitante) ? '<span class="star">★</span>' : ''}
-            <span class="tv">${fechaCorta(fechaPartido)}${p.tv ? ' · ' + p.tv : ''}${(!p.hora && !p.resultado) ? ' · Hora por confirmar' : ''}</span>
+            <span>${esc(p.visitante)}</span><span class="group-badge">G${p.grupo}</span>
           </div>
-        </div>`;
-      }).join('');
+          <span class="status-chip ${estado.key}">${estado.label}</span>
+          ${detalles.length ? `<span class="tv">${detalles.join(' · ')}</span>` : ''}
+        </div>
+        <button class="match-star ${fav ? 'on' : ''}" data-match-id="${esc(partidoId(p))}" aria-label="${fav ? 'Quitar partido de favoritos' : 'Guardar partido como favorito'}" aria-pressed="${fav ? 'true' : 'false'}" title="${fav ? 'Quitar de favoritos' : 'Guardar partido'}">${fav ? '★' : '☆'}</button>
+      </div>`;
+  }
 
-      return `<div class="board">
-        <div class="board-head">
+  function renderDias(partidos){
+    const conFecha = partidos.filter(p => p.fecha);
+    const sinFecha = partidos.filter(p => !p.fecha);
+    let html = agruparPorDia(conFecha).map(([fecha, lista]) => `
+      <div class="day-block">
+        <div class="day-head">${fechaLarga(fecha)}</div>
+        ${lista.map(renderPartido).join('')}
+      </div>`).join('');
+
+    if(sinFecha.length){
+      html += `
+        <div class="day-block">
+          <div class="day-head pending-day-head">HORARIOS PENDIENTES · ${sinFecha.length} ${sinFecha.length === 1 ? 'PARTIDO' : 'PARTIDOS'}</div>
+          ${sinFecha.slice().sort(ordenarPartidos).map(renderPartido).join('')}
+        </div>`;
+    }
+    return html;
+  }
+
+  function renderJornadaBoard(n, partidos, permitirICS=true){
+    if(partidos.length === 0) return '';
+    const finalizados = partidos.filter(p => p.resultado).length;
+    const confirmados = partidos.filter(tieneHorarioConfirmado).length;
+    const pendientes = partidos.length - confirmados;
+    let badge = '';
+    if(finalizados === partidos.length) badge = '<span class="badge-done">FINALIZADA</span>';
+    else if(confirmados === partidos.length) badge = '<span class="badge-confirmed">HORARIOS CONFIRMADOS</span>';
+    else if(confirmados > 0) badge = '<span class="badge-partial">PARCIALMENTE CONFIRMADA</span>';
+    else badge = '<span class="badge-new">POR PROGRAMAR</span>';
+
+    return `<div class="board">
+      <div class="board-head">
+        <div>
           <div class="jornada">JORNADA ${n}</div>
-          <div class="board-head-actions">
-            ${badge}
-            <button class="ics-btn" onclick="exportarJornada(${n})">.ICS</button>
+          <div class="board-progress">${confirmados}/${partidos.length} CON HORARIO · ${pendientes} PENDIENTES</div>
+        </div>
+        <div class="board-head-actions">
+          ${badge}
+          ${permitirICS && partidos.some(p => p.fecha) ? `<button class="ics-btn" onclick="exportarJornada(${n})">.ICS</button>` : ''}
+        </div>
+      </div>
+      ${renderDias(partidos)}
+    </div>`;
+  }
+
+  // ---------- Vista: Calendario unificado ----------
+  function renderCalendario(){
+    const nums = numerosJornada();
+    if(nums.length === 0){
+      return `<p class="empty">Todavía no hay calendario cargado.</p>`;
+    }
+
+    const equipos = todosLosEquipos();
+    if(calendarTeam && !equipos.includes(calendarTeam)) calendarTeam = '';
+
+    const partidosBase = calendarTeam
+      ? todosLosPartidos().filter(p => p.local === calendarTeam || p.visitante === calendarTeam)
+      : todosLosPartidos();
+    const confirmados = partidosBase.filter(tieneHorarioConfirmado).length;
+    const pendientes = partidosBase.length - confirmados;
+
+    const opciones = [
+      `<option value="">Todos los equipos</option>`,
+      ...equipos.map(eq => `<option value="${esc(eq)}" ${eq === calendarTeam ? 'selected' : ''}>${esc(eq)}</option>`)
+    ].join('');
+
+    const resumen = calendarTeam
+      ? `<strong>${partidosBase.length} jornadas</strong> · <strong>${confirmados}</strong> con horario confirmado · <strong>${pendientes}</strong> pendientes`
+      : `<strong>${partidosBase.length} partidos</strong> · <strong>${confirmados}</strong> con horario confirmado · <strong>${pendientes}</strong> pendientes`;
+
+    let jornadasVisibles = nums;
+    if(!calendarTeam){
+      const hoy = hoyMadridISO();
+      const jornadaDestacada = nums.find(n => (fechaReferenciaJornada(n) || '9999-12-31') >= hoy) || nums[nums.length - 1];
+      const idx = nums.indexOf(jornadaDestacada);
+      jornadasVisibles = nums.slice(Math.max(0, idx - 1), idx + 6);
+    }
+
+    const boards = jornadasVisibles.map(n => {
+      let partidos = partidosDeJornada(n);
+      if(calendarTeam) partidos = partidos.filter(p => p.local === calendarTeam || p.visitante === calendarTeam);
+      if(soloConfirmados) partidos = partidos.filter(tieneHorarioConfirmado);
+      return renderJornadaBoard(n, partidos);
+    }).filter(Boolean).join('');
+
+    return `
+      <div class="calendar-tools">
+        <div class="calendar-tools-grid">
+          <div>
+            <label for="calendarTeamSelect">Calendario de equipo</label>
+            <select class="team-select" id="calendarTeamSelect">${opciones}</select>
+          </div>
+          <div>
+            <label>Mostrar</label>
+            <div class="filter-buttons">
+              <button class="filter-btn ${!soloConfirmados ? 'active' : ''}" data-calendar-filter="all">Todos</button>
+              <button class="filter-btn ${soloConfirmados ? 'active' : ''}" data-calendar-filter="confirmed">Solo confirmados</button>
+            </div>
           </div>
         </div>
-        ${rows}
-      </div>`;
-    }).join('');
+        <div class="calendar-summary">${resumen}</div>
+      </div>
+      ${boards || `<p class="empty">No hay partidos que cumplan este filtro.</p>`}`;
+  }
+
+  function enlazarControlesCalendario(){
+    const select = document.getElementById('calendarTeamSelect');
+    if(select){
+      select.addEventListener('change', () => {
+        calendarTeam = select.value;
+        localStorage.setItem('rfef_calendar_team', calendarTeam);
+        renderTodo();
+      });
+    }
+    document.querySelectorAll('[data-calendar-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        soloConfirmados = btn.dataset.calendarFilter === 'confirmed';
+        localStorage.setItem('rfef_solo_confirmados', soloConfirmados ? '1' : '0');
+        renderTodo();
+      });
+    });
+  }
+
+  // ---------- Vista: Partidos favoritos ----------
+  function renderFavoritos(){
+    const seleccionados = todosLosPartidos().filter(esPartidoFavorito);
+    if(seleccionados.length === 0){
+      return `<p class="empty">Todavía no has guardado ningún partido. Pulsa la ☆ junto a cualquier encuentro y aparecerá aquí.</p>`;
+    }
+
+    const porJornada = new Map();
+    seleccionados.forEach(p => {
+      if(!porJornada.has(p.jornada)) porJornada.set(p.jornada, []);
+      porJornada.get(p.jornada).push(p);
+    });
+    return Array.from(porJornada.entries())
+      .sort((a,b) => a[0]-b[0])
+      .map(([n, partidos]) => renderJornadaBoard(n, partidos, false))
+      .join('');
   }
 
   // ---------- Vista: Clasificación ----------
@@ -504,12 +899,12 @@
   function renderClasificacion(){
     const tabla = computeStandings(currentGroup);
     if(tabla.length === 0){
-      return `<p class="empty">Todavía no hay resultados para calcular la clasificación de este grupo.</p>`;
+      return `<p class="empty">Todavía no hay resultados para calcular la clasificación del Grupo ${currentGroup}.</p>`;
     }
     const filas = tabla.map((t, i) => `
       <tr>
         <td class="pos">${i+1}</td>
-        <td>${t.equipo}${esFavorito(t.equipo) ? '<span class="star">★</span>' : ''}</td>
+        <td>${esc(t.equipo)}${esFavorito(t.equipo) ? '<span class="star">★</span>' : ''}</td>
         <td class="num">${t.pj}</td>
         <td class="num">${t.g}</td>
         <td class="num">${t.e}</td>
@@ -519,6 +914,7 @@
       </tr>`).join('');
 
     return `<div class="board">
+      <div class="board-head"><div class="jornada">CLASIFICACIÓN · GRUPO ${currentGroup}</div></div>
       <table class="standings">
         <thead><tr>
           <th></th><th>Equipo</th><th class="num">PJ</th><th class="num">G</th>
@@ -529,46 +925,58 @@
     </div>`;
   }
 
-  // ---------- Vista: Hoy juega ----------
+  // ---------- Vista: Hoy juega (ambos grupos) ----------
   function renderHoy(){
-    const hoy = new Date().toISOString().slice(0,10);
-    const jornadasObj = jornadasDeGrupo(currentGroup);
-    let jornadaNum = null, partidosHoy = [];
-    Object.entries(jornadasObj).forEach(([n, j]) => {
-      const enEsteJornada = j.partidos.filter(p => (p.fecha || j.fecha) === hoy);
-      if(enEsteJornada.length){ jornadaNum = n; partidosHoy = partidosHoy.concat(enEsteJornada); }
-    });
-
+    const hoy = hoyMadridISO();
+    const partidosHoy = todosLosPartidos().filter(p => p.fecha === hoy).sort(ordenarPartidos);
     if(partidosHoy.length === 0){
-      return `<p class="empty">Hoy no hay partidos programados en este grupo.</p>`;
+      return `<p class="empty">Hoy no hay partidos programados en Primera Federación.</p>`;
     }
-    const rows = partidosHoy.map(p => {
-      const fav = esFavorito(p.local) || esFavorito(p.visitante);
-      return `<div class="row ${fav ? 'fav' : ''}">
-        <div class="time">${p.resultado || p.hora || '· ​·  ​·'}</div>
-        <div class="match">${p.local} <span style="color:var(--text-muted)">vs</span> ${p.visitante}
-          ${p.tv ? `<span class="tv">${p.tv}</span>` : ''}
-        </div>
-      </div>`;
-    }).join('');
+
+    const jornadas = [...new Set(partidosHoy.map(p => p.jornada))].sort((a,b)=>a-b);
+    const titulo = jornadas.length === 1 ? `HOY · JORNADA ${jornadas[0]}` : 'HOY';
     return `<div class="board">
-      <div class="board-head"><div class="jornada">HOY · JORNADA ${jornadaNum}</div></div>
-      ${rows}
+      <div class="board-head"><div class="jornada">${titulo}</div></div>
+      <div class="day-block">
+        <div class="day-head">${fechaLarga(hoy)}</div>
+        ${partidosHoy.map(renderPartido).join('')}
+      </div>
     </div>`;
+  }
+
+  function enlazarEstrellasPartido(){
+    document.querySelectorAll('.match-star').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.matchId;
+        if(partidosFavoritos.includes(id)) partidosFavoritos = partidosFavoritos.filter(x => x !== id);
+        else partidosFavoritos.push(id);
+        localStorage.setItem('rfef_partidos_favoritos', JSON.stringify(partidosFavoritos));
+        renderTodo();
+      });
+    });
   }
 
   // ---------- Render general ----------
   function renderTodo(){
     const content = document.getElementById('content');
     if(currentView === 'calendario') content.innerHTML = renderCalendario();
+    else if(currentView === 'favoritos') content.innerHTML = renderFavoritos();
     else if(currentView === 'clasificacion') content.innerHTML = renderClasificacion();
     else content.innerHTML = renderHoy();
+
+    const groupTabs = document.getElementById('groupTabs');
+    groupTabs.style.display = currentView === 'clasificacion' ? 'flex' : 'none';
+
+    const favTab = document.querySelector('[data-view="favoritos"]');
+    if(favTab) favTab.textContent = partidosFavoritos.length ? `Favoritos (${partidosFavoritos.length})` : 'Favoritos';
 
     const lc = DATA.last_checked ? new Date(DATA.last_checked) : null;
     document.getElementById('lastChecked').textContent = lc
       ? `Última comprobación: ${lc.toLocaleString('es-ES')}`
       : '';
 
+    enlazarEstrellasPartido();
+    if(currentView === 'calendario') enlazarControlesCalendario();
     renderFavTeams();
   }
 
@@ -581,16 +989,16 @@
     });
   });
 
-  document.querySelectorAll('.tabs:not(.view-tabs) .tab').forEach(btn => {
+  document.querySelectorAll('#groupTabs .tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.tabs:not(.view-tabs) .tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#groupTabs .tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentGroup = Number(btn.dataset.grupo);
       renderTodo();
     });
   });
 
-  // ---------- Equipos favoritos ----------
+  // ---------- Equipos favoritos para recordatorios ----------
   function todosLosEquipos(){
     const equipos = new Set();
     ['1','2'].forEach(g => {
@@ -598,7 +1006,7 @@
         j.partidos.forEach(p => { equipos.add(p.local); equipos.add(p.visitante); });
       });
     });
-    return Array.from(equipos).sort();
+    return Array.from(equipos).sort((a,b) => a.localeCompare(b,'es'));
   }
 
   function renderFavTeams(){
@@ -607,7 +1015,7 @@
     if(equipos.length === 0){ cont.innerHTML = ''; return; }
     cont.innerHTML = equipos.map(eq => {
       const s = slug(eq);
-      return `<div class="chip ${favoritos.includes(s) ? 'on' : ''}" data-slug="${s}" data-nombre="${eq}">${eq}</div>`;
+      return `<div class="chip ${favoritos.includes(s) ? 'on' : ''}" data-slug="${s}" data-nombre="${esc(eq)}">${esc(eq)}</div>`;
     }).join('');
     cont.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => toggleFavorito(chip.dataset.slug, chip.dataset.nombre, chip));
@@ -625,7 +1033,7 @@
     }
     localStorage.setItem('rfef_favoritos', JSON.stringify(favoritos));
     chipEl.classList.toggle('on');
-    renderTodo(); // para refrescar estrellas / filas destacadas
+    if(currentView === 'clasificacion') renderTodo();
   }
 
   // ---------- Recordatorios ----------
@@ -655,20 +1063,21 @@
   function icsEscape(s){ return String(s).replace(/([,;])/g, '\\$1'); }
 
   function partidoAEvento(p, fechaISO){
-    const uid = `${slug(p.local)}-${slug(p.visitante)}-${fechaISO}@rfef-horarios`;
+    if(!fechaISO) return null;
+    const uid = `${partidoId(p)}-${fechaISO}@rfef-horarios`;
     if(p.hora){
       const [hh, mm] = p.hora.split(':');
       const start = fechaISO.replace(/-/g,'') + 'T' + hh.padStart(2,'0') + mm + '00';
       const startDate = new Date(`${fechaISO}T${p.hora}:00`);
       const end = new Date(startDate.getTime() + 2*60*60*1000);
-      const endStr = end.toISOString().slice(0,19).replace(/[-:]/g,'').replace('T','T');
+      const endStr = end.toISOString().slice(0,19).replace(/[-:]/g,'');
       return [
         'BEGIN:VEVENT',
         `UID:${uid}`,
         `DTSTART:${start}`,
         `DTEND:${endStr}`,
         `SUMMARY:${icsEscape(p.local + ' vs ' + p.visitante)}`,
-        `DESCRIPTION:${icsEscape('Primera RFEF' + (p.tv ? ' · ' + p.tv : ''))}`,
+        `DESCRIPTION:${icsEscape('Primera RFEF · Grupo ' + p.grupo + (p.tv ? ' · ' + p.tv : ''))}`,
         'END:VEVENT',
       ].join('\r\n');
     }
@@ -678,6 +1087,7 @@
       `UID:${uid}`,
       `DTSTART;VALUE=DATE:${dstr}`,
       `SUMMARY:${icsEscape(p.local + ' vs ' + p.visitante + ' (hora por confirmar)')}`,
+      `DESCRIPTION:${icsEscape('Primera RFEF · Grupo ' + p.grupo)}`,
       'END:VEVENT',
     ].join('\r\n');
   }
@@ -687,7 +1097,7 @@
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
       'PRODID:-//Horarios Primera RFEF//ES',
-      ...eventos,
+      ...eventos.filter(Boolean),
       'END:VCALENDAR',
     ].join('\r\n');
     const blob = new Blob([contenido], {type: 'text/calendar'});
@@ -699,19 +1109,13 @@
   }
 
   function exportarJornada(n){
-    const j = jornadasDeGrupo(currentGroup)[n];
-    if(!j) return;
-    const eventos = j.partidos.map(p => partidoAEvento(p, p.fecha || j.fecha));
-    descargarICS(`primera-rfef-grupo${currentGroup}-jornada${n}.ics`, eventos);
+    const eventos = partidosDeJornada(n).map(p => partidoAEvento(p, p.fecha));
+    descargarICS(`primera-rfef-jornada${n}.ics`, eventos);
   }
 
   document.getElementById('exportAllBtn').addEventListener('click', () => {
-    const jornadasObj = jornadasDeGrupo(currentGroup);
-    const eventos = [];
-    Object.values(jornadasObj).forEach(j => {
-      j.partidos.forEach(p => eventos.push(partidoAEvento(p, p.fecha || j.fecha)));
-    });
-    descargarICS(`primera-rfef-grupo${currentGroup}-temporada.ics`, eventos);
+    const eventos = todosLosPartidos().map(p => partidoAEvento(p, p.fecha));
+    descargarICS('primera-rfef-2026-27-ambos-grupos.ics', eventos);
   });
 
   // ---------- Service worker (offline + shell de la PWA) ----------
@@ -728,7 +1132,7 @@
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
-      appId: "TU_ONESIGNAL_APP_ID", // sustituir por el App ID real de OneSignal
+      appId: "TU_ONESIGNAL_APP_ID",
       notifyButton: { enable: false },
     });
     oneSignalRef = OneSignal;
@@ -745,7 +1149,6 @@
         await OneSignal.Notifications.requestPermission();
         await OneSignal.User.PushSubscription.optIn();
         notifSwitch.classList.add('on');
-        // Vuelca a OneSignal las preferencias que ya tuviera guardadas localmente
         favoritos.forEach(s => OneSignal.User.addTag(`equipo_${s}`, '1'));
         recordatorios.forEach(h => OneSignal.User.addTag(`recordatorio_${h}h`, '1'));
       }

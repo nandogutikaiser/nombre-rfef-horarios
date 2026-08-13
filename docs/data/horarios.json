@@ -1,6 +1,6 @@
 {
   "temporada": "2026/27",
-  "last_checked": "2026-08-12T17:53:42.908506Z",
+  "last_checked": "2026-08-13T08:19:08.715913+00:00",
   "grupos": {
     "1": {
       "jornadas": {
@@ -85,62 +85,82 @@
             {
               "local": "Athletic Club \"B\"",
               "visitante": "Real Avilés Industrial",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/real-aviles-ind"
             },
             {
               "local": "CD Coria",
               "visitante": "Barakaldo CF",
-              "hora": null,
-              "tv": null
+              "hora": "18:45",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/cd-coria"
             },
             {
               "local": "CyD Leonesa",
               "visitante": "AD Mérida",
-              "hora": null,
-              "tv": null
+              "hora": "16:00",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/merida-ad-senior"
             },
             {
               "local": "RC Deportivo Fabril",
               "visitante": "CP Cacereño",
-              "hora": null,
-              "tv": null
+              "hora": "12:00",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/cacereno"
             },
             {
               "local": "CD Extremadura",
               "visitante": "Racing Club Ferrol",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/racing-club-ferrol"
             },
             {
               "local": "CD Mirandés",
               "visitante": "UD Ourense",
-              "hora": null,
-              "tv": null
+              "hora": "16:30",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/mirandes"
             },
             {
               "local": "Pontevedra CF",
               "visitante": "Arenas Club",
-              "hora": null,
-              "tv": null
+              "hora": "18:45",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/arenas-club"
             },
             {
               "local": "SD Ponferradina",
               "visitante": "CD Lugo",
-              "hora": null,
-              "tv": null
+              "hora": "21:15",
+              "tv": null,
+              "fecha": "2026-09-04",
+              "fuente": "https://es.besoccer.com/equipo/partidos/ponferradina-sd"
             },
             {
               "local": "Unionistas de Salamanca CF",
               "visitante": "Real Unión Club",
-              "hora": null,
-              "tv": null
+              "hora": "18:45",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/real-union-club-irun"
             },
             {
               "local": "Zamora CF",
               "visitante": "UD Logroñés",
-              "hora": null,
-              "tv": null
+              "hora": "20:30",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/zamora"
             }
           ]
         },
@@ -2569,62 +2589,82 @@
             {
               "local": "AD Alcorcón",
               "visitante": "CE Europa",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/ad-alcorcon"
             },
             {
               "local": "FC Cartagena",
               "visitante": "Gimnàstic de Tarragona",
-              "hora": null,
-              "tv": null
+              "hora": "18:45",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/gimnastic-tarragona"
             },
             {
               "local": "Hércules de Alicante CF",
               "visitante": "Atlético Madrileño",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/hercules"
             },
             {
               "local": "UD Ibiza",
               "visitante": "CF Rayo Majadahonda",
-              "hora": null,
-              "tv": null
+              "hora": "18:00",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/rayo-majadahonda"
             },
             {
               "local": "Real Jaén CF",
               "visitante": "SD Huesca",
-              "hora": null,
-              "tv": null
+              "hora": "11:30",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/real-jaen"
             },
             {
               "local": "Real Murcia CF",
               "visitante": "CD Teruel",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-06",
+              "fuente": "https://es.besoccer.com/equipo/partidos/teruel"
             },
             {
               "local": "Real Madrid Castilla",
               "visitante": "Juventud de Torremolinos CF",
-              "hora": null,
-              "tv": null
+              "hora": "13:00",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/juventud-torremolinos"
             },
             {
               "local": "UE Sant Andreu",
               "visitante": "Águilas FC",
-              "hora": null,
-              "tv": null
+              "hora": "18:15",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/sant-andreu"
             },
             {
               "local": "Villarreal CF \"B\"",
               "visitante": "Algeciras CF",
-              "hora": null,
-              "tv": null
+              "hora": "19:00",
+              "tv": null,
+              "fecha": "2026-09-04",
+              "fuente": "https://es.besoccer.com/equipo/partidos/villarreal-b"
             },
             {
               "local": "Real Zaragoza",
               "visitante": "Antequera CF",
-              "hora": null,
-              "tv": null
+              "hora": "21:00",
+              "tv": null,
+              "fecha": "2026-09-05",
+              "fuente": "https://es.besoccer.com/equipo/partidos/real-zaragoza"
             }
           ]
         },
@@ -4973,5 +5013,6 @@
   },
   "noticias_procesadas": [
     "https://www.esfutbol.net/competiciones-rfef/1arfef-confirmados-horarios-1a-jornada-73050"
-  ]
+  ],
+  "fuente_horarios": "BeSoccer"
 }
