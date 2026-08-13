@@ -43,7 +43,7 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
 }
 
-ROUND_RE = re.compile(r"(?:Jornada|Round)\s+(\d+)", re.IGNORECASE)
+ROUND_RE = re.compile(r"(?:Jor(?:nada)?\.?|Round)\s*(\d+)", re.IGNORECASE)
 SCORE_RE = re.compile(r"(?<!\d)(\d{1,2})\s*-\s*(\d{1,2})(?!\d)")
 TIME_RE = re.compile(r"(?<!\d)([01]?\d|2[0-3]):([0-5]\d)(?!\d)")
 DATE_DMY_RE = re.compile(r"(?<!\d)(\d{1,2})[./-](\d{1,2})[./-](20\d{2})(?!\d)")
@@ -274,45 +274,30 @@ def _team_text(node: Tag, itemprop: str) -> str | None:
 
 
 def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
-    """Devuelve enlaces/tarjetas de partido sin depender de clases CSS.
+    """Devuelve todos los enlaces de partido de BeSoccer.
 
-    BeSoccer cambió el HTML de sus calendarios: en agosto de 2026 los partidos
-    siguen estando en el HTML como enlaces ``/partido/local/visitante/id``, pero
-    ya no llevan de forma fiable ``itemprop=homeTeam`` / ``awayTeam``. La URL
-    del propio partido es por tanto el ancla más estable.
+    No filtramos aquí por el texto ``Primera Federación`` ni por ``Jornada``.
+    En el HTML que recibe GitHub Actions esos rótulos pueden vivir fuera del
+    propio ``<a>`` aunque el enlace del partido sí esté presente. El filtrado
+    fiable se hace después cruzando local+visitante con los 380 cruces que ya
+    existen en ``horarios.json`` para ese grupo.
     """
     nodes: list[Tag] = []
-    seen: set[int] = set()
+    seen_hrefs: set[str] = set()
 
-    # Vía principal: enlaces reales de partido de BeSoccer.
     for node in soup.find_all("a", href=True):
         href = str(node.get("href") or "")
-        path = urlparse(urljoin("https://es.besoccer.com", href)).path
+        absolute = urljoin("https://es.besoccer.com", href)
+        path = urlparse(absolute).path
         if not MATCH_HREF_RE.search(path):
             continue
-        texto = node.get_text(" ", strip=True)
-        if not ROUND_RE.search(texto) or not LEAGUE_RE.search(texto):
+        if absolute in seen_hrefs:
             continue
-        seen.add(id(node))
+        seen_hrefs.add(absolute)
         nodes.append(node)
 
-    # Compatibilidad con el marcado semántico antiguo por si BeSoccer lo
-    # mantiene en alguna variante regional.
-    selectors = (
-        "div.comp-matches a[data-status]",
-        "div.matches a[data-status]",
-        "a[data-status]",
-        "article a[data-status]",
-    )
-    for selector in selectors:
-        for node in soup.select(selector):
-            if id(node) in seen:
-                continue
-            if node.find(attrs={"itemprop": "homeTeam"}) and node.find(attrs={"itemprop": "awayTeam"}):
-                seen.add(id(node))
-                nodes.append(node)
-
-    # Último fallback semántico.
+    # Compatibilidad con el marcado semántico antiguo si una variante regional
+    # no expone href canónico.
     if not nodes:
         for home in soup.find_all(attrs={"itemprop": "homeTeam"}):
             node = home
@@ -320,15 +305,37 @@ def _match_nodes(soup: BeautifulSoup) -> list[Tag]:
                 if not isinstance(node, Tag):
                     break
                 if node.find(attrs={"itemprop": "awayTeam"}):
-                    if node.find(attrs={"starttime": True}) or node.name == "a" or node.get("data-status") is not None:
-                        break
+                    break
                 node = node.parent
             if isinstance(node, Tag) and node.find(attrs={"itemprop": "awayTeam"}):
-                if id(node) not in seen:
-                    seen.add(id(node))
-                    nodes.append(node)
+                nodes.append(node)
 
     return nodes
+
+
+def _match_context(node: Tag) -> Tag:
+    """Busca el contenedor más cercano que pertenezca solo a ese partido.
+
+    Algunas respuestas de BeSoccer dejan fecha/hora/competición en hermanos del
+    enlace. Subimos por el DOM mientras el contenedor siga teniendo un único
+    enlace de partido; así capturamos esos datos sin mezclar el partido vecino.
+    """
+    best = node
+    current: Tag | None = node
+    for _ in range(7):
+        parent = current.parent if isinstance(current, Tag) else None
+        if not isinstance(parent, Tag):
+            break
+        match_links = []
+        for a in parent.find_all("a", href=True):
+            href = str(a.get("href") or "")
+            if MATCH_HREF_RE.search(urlparse(urljoin("https://es.besoccer.com", href)).path):
+                match_links.append(a)
+        if len(match_links) != 1:
+            break
+        best = parent
+        current = parent
+    return best
 
 
 def _teams_from_match_href(node: Tag, source_url: str) -> tuple[str | None, str | None, str | None]:
@@ -419,10 +426,12 @@ def _parse_tv(node: Tag) -> str | None:
 def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
     matches: list[Match] = []
     for node in _match_nodes(soup):
+        context = _match_context(node)
+
         # Primero intentamos el marcado semántico antiguo. Si no existe,
         # derivamos los equipos de /partido/<local>/<visitante>/<id>.
-        local = _team_text(node, "homeTeam")
-        visitante = _team_text(node, "awayTeam")
+        local = _team_text(context, "homeTeam")
+        visitante = _team_text(context, "awayTeam")
         match_source = source_url
         if not local or not visitante:
             local_href, visitante_href, href = _teams_from_match_href(node, source_url)
@@ -432,17 +441,17 @@ def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
         if not local or not visitante:
             continue
 
-        texto = node.get_text(" ", strip=True)
+        texto = context.get_text(" ", strip=True)
         jmatch = ROUND_RE.search(texto)
         jornada = int(jmatch.group(1)) if jmatch else None
 
-        fecha, hora = _parse_starttime(node)
+        fecha, hora = _parse_starttime(context)
         if not fecha:
-            vfecha, vhora = _parse_visible_datetime(node)
+            vfecha, vhora = _parse_visible_datetime(context)
             fecha = vfecha
             hora = hora or vhora
         elif not hora:
-            _, vhora = _parse_visible_datetime(node)
+            _, vhora = _parse_visible_datetime(context)
             hora = vhora
 
         score = SCORE_RE.search(texto)
@@ -455,7 +464,7 @@ def parse_matches(soup: BeautifulSoup, source_url: str) -> list[Match]:
             fecha=fecha,
             hora=hora,
             resultado=resultado,
-            tv=_parse_tv(node),
+            tv=_parse_tv(context),
             fuente=match_source,
             es_primera_federacion=bool(LEAGUE_RE.search(texto)),
         ))
@@ -659,8 +668,17 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
             f"G{group}: la página índice de equipos no respondió; se usaron slugs verificados de BeSoccer."
         )
 
+    # El calendario JSON ya conoce los 380 cruces oficiales y su jornada.
+    # Esa es una clave mucho más estable que el texto/clases HTML de BeSoccer.
+    fixture_to_round: dict[tuple[str, str], int] = {}
+    for j_str, jornada_data in data["grupos"][str(group)]["jornadas"].items():
+        j_num = int(j_str)
+        for p in jornada_data["partidos"]:
+            fixture_to_round[(p["local"], p["visitante"])] = j_num
+
     aggregated: dict[tuple[int, str, str], Match] = {}
     failed: list[str] = []
+    team_stats: dict[str, tuple[int, int, int]] = {}
 
     for team in official:
         url = urls[team]
@@ -670,25 +688,35 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
             failed.append(f"{team}: {exc}")
             continue
 
+        raw_link_count = len(_match_nodes(team_soup))
         parsed = parse_matches(team_soup, url)
+        recognized_this_team = 0
         if not parsed:
-            warnings.append(f"G{group}: {team} descargó correctamente pero no se detectaron enlaces de Primera Federación.")
+            warnings.append(f"G{group}: {team} descargó correctamente pero no se detectaron enlaces de partido.")
         for m in parsed:
-            if not m.es_primera_federacion or not m.jornada or not (1 <= m.jornada <= 38):
-                continue
-            if not _in_season(m.fecha):
-                continue
-
             local = _official_team_name(m.local, official)
             visitante = _official_team_name(m.visitante, official)
             if not local or not visitante:
                 continue
 
-            # Reescribimos ya a nombres canónicos para deduplicar.
+            # Solo aceptamos cruces que existan exactamente en el calendario
+            # oficial cargado para 2026/27. Esto filtra amistosos, Copa y
+            # partidos de temporadas anteriores sin depender del texto visible.
+            jornada = fixture_to_round.get((local, visitante))
+            if not jornada:
+                continue
+            if m.fecha and not _in_season(m.fecha):
+                continue
+
             m.local = local
             m.visitante = visitante
-            key = (m.jornada, local, visitante)
+            m.jornada = jornada
+            m.es_primera_federacion = True
+            key = (jornada, local, visitante)
             aggregated[key] = _merge_match(aggregated.get(key), m)
+            recognized_this_team += 1
+
+        team_stats[team] = (raw_link_count, len(parsed), recognized_this_team)
 
     if failed:
         raise RuntimeError(
@@ -719,10 +747,18 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
     # volver a guardar un JSON aparentemente correcto pero incompleto.
     bad_rounds = [j for j, c in coverage.items() if c["detectados"] != 10]
     if bad_rounds:
+        sample_teams = list(official)[:4]
+        diagnostic = "; ".join(
+            f"{team}: enlaces={team_stats.get(team, (0, 0, 0))[0]}, "
+            f"parseados={team_stats.get(team, (0, 0, 0))[1]}, "
+            f"liga={team_stats.get(team, (0, 0, 0))[2]}"
+            for team in sample_teams
+        )
         raise RuntimeError(
             f"G{group}: cobertura incompleta de BeSoccer. Se esperaban 10 partidos por jornada; "
             + ", ".join(f"J{j}={coverage[j]['detectados']}" for j in bad_rounds[:12])
             + (" ..." if len(bad_rounds) > 12 else "")
+            + f" | Diagnóstico: {diagnostic}"
         )
 
     return sorted(set(changed_rounds)), warnings, coverage
