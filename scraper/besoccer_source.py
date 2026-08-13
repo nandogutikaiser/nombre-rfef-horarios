@@ -16,6 +16,7 @@ BeSoccer pero quedar vacía si /jornadaN redirigía a la jornada activa.
 from __future__ import annotations
 
 import re
+import time
 import unicodedata
 from dataclasses import dataclass
 from datetime import datetime, date, timezone
@@ -23,10 +24,8 @@ from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
-import requests
 from bs4 import BeautifulSoup, Tag
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+from curl_cffi import requests as curl_requests
 
 BASE_COMPETITION = "https://es.besoccer.com/competicion/resultados/primera_division_rfef/2027"
 BASE_TEAMS = "https://es.besoccer.com/competicion/equipos/primera_division_rfef/2027"
@@ -44,7 +43,7 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
 }
 
-ROUND_RE = re.compile(r"Jornada\s+(\d+)", re.IGNORECASE)
+ROUND_RE = re.compile(r"(?:Jornada|Round)\s+(\d+)", re.IGNORECASE)
 SCORE_RE = re.compile(r"(?<!\d)(\d{1,2})\s*-\s*(\d{1,2})(?!\d)")
 TIME_RE = re.compile(r"(?<!\d)([01]?\d|2[0-3]):([0-5]\d)(?!\d)")
 DATE_DMY_RE = re.compile(r"(?<!\d)(\d{1,2})[./-](\d{1,2})[./-](20\d{2})(?!\d)")
@@ -55,7 +54,7 @@ DATE_TEXT_RE = re.compile(
     r"(?:\s+(20\d{2}))?(?!\d)",
     re.IGNORECASE,
 )
-LEAGUE_RE = re.compile(r"Primera\s+(?:Federaci[oó]n|RFEF)", re.IGNORECASE)
+LEAGUE_RE = re.compile(r"Primera\s+(?:Federaci[oó]n|RFEF|Divisi[oó]n\s+RFEF)", re.IGNORECASE)
 
 MONTHS = {
     "ENE": 1, "JAN": 1, "FEB": 2, "MAR": 3, "ABR": 4, "APR": 4,
@@ -118,6 +117,65 @@ ALIASES = {
 }
 
 
+# Fallback estable: evita depender de /competicion/equipos cuando BeSoccer
+# responde 406 a GitHub Actions. Los slugs proceden de las páginas oficiales
+# de cada club en BeSoccer. El descubrimiento dinámico se conserva como primera
+# opción para detectar futuros cambios de slug.
+STATIC_TEAM_SLUGS = {
+    1: {
+        "AD Mérida": "merida-ad-senior",
+        "Arenas Club": "arenas-club",
+        'Athletic Club "B"': "athletic-bilbao-b",
+        "Barakaldo CF": "barakaldo-cf",
+        "CD Coria": "cd-coria",
+        "CD Extremadura": "cd-extremadura",
+        "CD Lugo": "lugo",
+        "CD Mirandés": "mirandes",
+        "CP Cacereño": "cacereno",
+        "CyD Leonesa": "cultural-deportiva-leonesa",
+        "Pontevedra CF": "pontevedra-cf",
+        "RC Deportivo Fabril": "deportivo-b",
+        "Racing Club Ferrol": "racing-club-ferrol",
+        "Real Avilés Industrial": "real-aviles-ind",
+        "Real Unión Club": "real-union-club-irun",
+        "SD Ponferradina": "ponferradina-sd",
+        "UD Logroñés": "ud-logrones",
+        "UD Ourense": "ourense-ud",
+        "Unionistas de Salamanca CF": "cd-unionistas-salamanca-cf-senior",
+        "Zamora CF": "zamora",
+    },
+    2: {
+        "AD Alcorcón": "ad-alcorcon",
+        "Algeciras CF": "algeciras-cf",
+        "Antequera CF": "antequera",
+        "Atlético Madrileño": "at-madrid-b",
+        "CD Teruel": "teruel",
+        "CE Europa": "ce-europa",
+        "CF Rayo Majadahonda": "rayo-majadahonda",
+        "FC Cartagena": "cartagena",
+        "Gimnàstic de Tarragona": "gimnastic-tarragona",
+        "Hércules de Alicante CF": "hercules",
+        "Juventud de Torremolinos CF": "juventud-torremolinos",
+        "Real Jaén CF": "real-jaen",
+        "Real Madrid Castilla": "rm-castilla",
+        "Real Murcia CF": "real-murcia",
+        "Real Zaragoza": "real-zaragoza",
+        "SD Huesca": "huesca",
+        "UD Ibiza": "ibiza-eivissa",
+        "UE Sant Andreu": "sant-andreu",
+        'Villarreal CF "B"': "villarreal-b",
+        "Águilas FC": "aguilas-cf",
+    },
+}
+
+
+def static_team_schedule_urls(group: int) -> dict[str, str]:
+    return {
+        team: f"https://es.besoccer.com/equipo/partidos/{slug}"
+        for team, slug in STATIC_TEAM_SLUGS.get(group, {}).items()
+    }
+
+
 @dataclass
 class Match:
     local: str
@@ -137,29 +195,74 @@ def normaliza(texto: str) -> str:
     return re.sub(r"[^a-z0-9]", "", texto.lower())
 
 
-def _session() -> requests.Session:
-    s = requests.Session()
-    retry = Retry(
-        total=3,
-        connect=3,
-        read=3,
-        backoff_factor=0.8,
-        status_forcelist=(429, 500, 502, 503, 504),
-        allowed_methods=frozenset(["GET"]),
-        raise_on_status=False,
-    )
-    s.mount("https://", HTTPAdapter(max_retries=retry))
-    s.headers.update(HEADERS)
-    return s
+def _www_fallback_url(url: str) -> str | None:
+    """Convierte una URL española de equipo a la variante internacional.
+
+    BeSoccer puede aplicar reglas anti-bot distintas por subdominio. La variante
+    internacional sirve como segundo intento y usa los mismos datos de partido.
+    Las horas se normalizan después a Europe/Madrid desde starttime.
+    """
+    parsed = urlparse(url)
+    if parsed.netloc != "es.besoccer.com":
+        return None
+
+    path = parsed.path
+    if path.startswith("/equipo/partidos/"):
+        slug = path.split("/equipo/partidos/", 1)[1].strip("/")
+        return f"https://www.besoccer.com/team/matches/{slug}"
+    if path.startswith("/equipo/"):
+        slug = path.split("/equipo/", 1)[1].strip("/")
+        return f"https://www.besoccer.com/team/{slug}"
+    return None
 
 
-SESSION = _session()
+def _get_with_browser_fingerprint(url: str):
+    """GET con huella TLS/HTTP2 de Chrome.
+
+    requests con un User-Agent de navegador sigue teniendo una huella de red de
+    cliente Python y BeSoccer puede responder 406 desde GitHub Actions.
+    curl_cffi reproduce la huella TLS/JA3/HTTP2 de Chrome.
+    """
+    last_exc = None
+    for attempt in range(3):
+        try:
+            response = curl_requests.get(
+                url,
+                headers=HEADERS,
+                impersonate="chrome",
+                timeout=30,
+                allow_redirects=True,
+            )
+            if response.status_code < 400:
+                return response
+            last_exc = RuntimeError(f"HTTP {response.status_code} en {url}")
+            # 406/403/429 no mejoran martilleando el servidor.
+            if response.status_code in (403, 406, 429):
+                break
+        except Exception as exc:
+            last_exc = exc
+        if attempt < 2:
+            time.sleep(1.2 * (attempt + 1))
+    if last_exc:
+        raise last_exc
+    raise RuntimeError(f"No se pudo descargar {url}")
 
 
 def fetch(url: str) -> BeautifulSoup:
-    r = SESSION.get(url, timeout=30)
-    r.raise_for_status()
-    return BeautifulSoup(r.text, "html.parser")
+    errors = []
+    candidates = [url]
+    fallback = _www_fallback_url(url)
+    if fallback and fallback not in candidates:
+        candidates.append(fallback)
+
+    for candidate in candidates:
+        try:
+            r = _get_with_browser_fingerprint(candidate)
+            return BeautifulSoup(r.text, "html.parser")
+        except Exception as exc:
+            errors.append(f"{candidate}: {exc}")
+
+    raise RuntimeError(" | ".join(errors))
 
 
 def _team_text(node: Tag, itemprop: str) -> str | None:
@@ -472,12 +575,24 @@ def scrape_group(data: dict, group: int, mode: str) -> tuple[list[int], list[str
         if len(urls) == len(official):
             break
 
+    # Si la portada de equipos devuelve 406 (caso observado en GitHub Actions),
+    # completamos los slugs desde el mapa verificado de BeSoccer. Esto elimina
+    # un punto único de fallo sin cambiar la fuente de datos.
+    static_urls = static_team_schedule_urls(group)
+    for team in official:
+        if team not in urls and team in static_urls:
+            urls[team] = static_urls[team]
+
     missing = [team for team in official if team not in urls]
     if missing:
         detail = (" | ".join(page_errors[:2]) + " | ") if page_errors else ""
         raise RuntimeError(
-            f"G{group}: BeSoccer no permitió descubrir {len(missing)} de {len(official)} equipos. "
+            f"G{group}: faltan URLs de {len(missing)} de {len(official)} equipos. "
             + detail + "Faltan: " + ", ".join(missing)
+        )
+    if page_errors:
+        warnings.append(
+            f"G{group}: la página índice de equipos no respondió; se usaron slugs verificados de BeSoccer."
         )
 
     aggregated: dict[tuple[int, str, str], Match] = {}
